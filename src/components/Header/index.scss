@@ -1,0 +1,32 @@
+@import '../App.scss';
+
+.navbar {
+    .container {
+        .active {
+            background-color: #FFF;
+            color: blue;
+            cursor: initial;
+        }
+
+        .non-active {
+            background-color: blue;
+            color: #FFF;
+        }
+    }
+}
+
+.navbar__brand {
+    margin-left: 2vw;;
+}
+
+.navbar__brand__image {
+    height: 50px;
+}
+
+.navbar__search {
+    position: absolute;
+    left: 35%;
+    width: 30%;
+    height: 30px;
+    margin-top: 10px;
+}

@@ -1,0 +1,17 @@
+.movie-card__figure__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    zoom:50% !important;
+}
+.movie-card__figure__overlay:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+    transition-duration: 0.2s;
+}
+
+.grid-view__column{
+    float: left;
+    min-width: 25%;
+}
