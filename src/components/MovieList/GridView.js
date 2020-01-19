@@ -4,22 +4,22 @@ import React from 'react';
 import MovieCard from './MovieCard';
 
 class GridView extends React.Component {
-    renderMovieCards(fourmovies) {
-        return fourmovies.map(({ id, poster_path, title, release_date }) => {
+    renderMovieCardsRow(fourmovies) {
+        return fourmovies.map(({ id, poster_path, title, release_date, vote_average }) => {
             const imageUrl = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`;
 
             return (
-                <div className='container__columns__movie column' key={id}>
-                    <MovieCard imageUrl={imageUrl} title={title} year={release_date} />
+                <div className='grid-view_column column' key={id}>
+                    <MovieCard imageUrl={imageUrl} title={title} year={release_date} vote_average={vote_average} />
                 </div>
             );
         });
     }
 
-    renderMovieCards2() {
+    renderMovieCards() {
         return this.splitEvery(this.props.movies, 5).map(fourmovies => (
-            <div className='columns'>
-                {this.renderMovieCards(fourmovies)}
+            <div className='columns grid-view__columns'>
+                {this.renderMovieCardsRow(fourmovies)}
             </div>
         ))
     }
@@ -39,8 +39,8 @@ class GridView extends React.Component {
 
     render() {
         return (
-            <div className='container'>
-                {this.renderMovieCards2()}
+            <div className='container grid-view'>
+                {this.renderMovieCards()}
             </div>
         )
     }

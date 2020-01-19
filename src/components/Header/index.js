@@ -8,7 +8,7 @@ const Header = (props) => {
     const { pathname } = props.location;
 
     return (
-        <nav className="navbar is-dark is-transparent" role="navigation" aria-label="main navigation">
+        <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className='container'>
                 <Link to='/'>
                     <div className="navbar-brand navbar__brand">
