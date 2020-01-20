@@ -5,9 +5,7 @@ import MovieList from '../MovieList';
 class GridView extends Component {
     render() {
         return (
-            <div className='container'>
-                <MovieList type='grid' page={this.props.match.params.page || 1} />
-            </div>
+            <MovieList type='grid' page={this.props.match.params.page || 1} />
         )
     }
 }

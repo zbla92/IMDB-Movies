@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { fetchPopularMovies } from '../../redux/actions/movies';
 
 import GridView from './GridView';
-import TableView from '../TableView';
+import TableView from './TableView';
 import Skeleton from '../../utils/GridSkeleton'
 
 class MovieList extends React.Component {
@@ -32,7 +32,7 @@ class MovieList extends React.Component {
 
 MovieList.propTypes = {
     movies: PropTypes.array.isRequired,
-    UI: PropTypes.object
+    loading: PropTypes.bool
 };
 
 MovieList.defaultProps = {

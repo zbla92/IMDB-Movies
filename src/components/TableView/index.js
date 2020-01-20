@@ -4,10 +4,9 @@ import MovieList from '../MovieList';
 
 class TableView extends Component {
     render() {
+        console.log(this.props)
         return (
-            <div className='container'>
-                <MovieList type='table' page={this.props.match.params.page || 1} />
-            </div>
+            <MovieList type='table' page={this.props.match.params.page || 1} />
         )
     }
 }

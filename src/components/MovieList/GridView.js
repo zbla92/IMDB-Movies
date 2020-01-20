@@ -17,8 +17,8 @@ class GridView extends React.Component {
     }
 
     renderMovieCards() {
-        return this.splitEvery(this.props.movies, 5).map(fourmovies => (
-            <div className='columns grid-view__columns'>
+        return this.splitEvery(this.props.movies, 5).map((fourmovies, index) => (
+            <div className='columns grid-view__columns' key={index}>
                 {this.renderMovieCardsRow(fourmovies)}
             </div>
         ))
