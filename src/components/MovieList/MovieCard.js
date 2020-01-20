@@ -15,7 +15,6 @@ class MovieCard extends Component {
             if (i % 2 === 0) {
                 stars[(i / 2) - 1] = <IoMdStar />
             } else if (i % 2 === 1 && i === rating) {
-                console.log('STARS i / 2:' + i / 2)
                 stars[Math.floor(i / 2)] = <IoMdStarHalf />
             }
         }

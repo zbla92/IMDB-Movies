@@ -1,8 +1,12 @@
 import './index.scss'
 
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
+import { fetchMoviesByKeyword } from '../../redux/actions/movies'
+import MovieList from '../MovieList';
 
 const Header = (props) => {
     const { pathname } = props.location;
@@ -24,4 +28,12 @@ const Header = (props) => {
     )
 }
 
-export default withRouter(Header);
+MovieList.propTypes = {
+    movies: PropTypes.array
+};
+
+const mapStateToProps = state => ({
+    movies: state.movies
+})
+
+export default connect(mapStateToProps, { fetchMoviesByKeyword })(withRouter(Header));

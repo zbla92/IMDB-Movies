@@ -2,21 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetchMovies } from '../../actions/movies';
+import { fetchPopularMovies } from '../../redux/actions/movies';
 
 import GridView from './GridView';
-import TableView from './TableView';
+import TableView from '../TableView';
+import Skeleton from '../../utils/GridSkeleton'
 
 class MovieList extends React.Component {
     componentDidMount() {
-        this.props.fetchMovies(this.props.page, this.props.filter);
+        this.props.fetchPopularMovies(this.props.page, this.props.filter);
     }
 
     render() {
-        if (this.props.movies.length < 1) {
+        if (this.props.loading) {
             return (
                 <div>
-                    Loading Movies...
+                    <Skeleton />
                 </div>
             )
         }
@@ -30,13 +31,17 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-    movies: PropTypes.array
+    movies: PropTypes.array.isRequired,
+    UI: PropTypes.object
 };
 
 MovieList.defaultProps = {
     movies: []
 };
 
-const mapStateToProps = ({ movies }) => ({ movies });
+const mapStateToProps = (state) => ({
+    movies: state.data.movies,
+    loading: state.UI.loading
+});
 
-export default connect(mapStateToProps, { fetchMovies })(MovieList);
+export default connect(mapStateToProps, { fetchPopularMovies })(MovieList);
