@@ -4,8 +4,8 @@ import React from 'react';
 import MovieCard from './MovieCard';
 
 class GridView extends React.Component {
-    renderMovieCardsRow(fourmovies) {
-        return fourmovies.map(({ id, poster_path, title, release_date, vote_average }) => {
+    renderMovieCardsRow(numOfMovies) {
+        return numOfMovies.map(({ id, poster_path, title, release_date, vote_average }) => {
             const imageUrl = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`;
 
             return (
@@ -17,9 +17,9 @@ class GridView extends React.Component {
     }
 
     renderMovieCards() {
-        return this.splitEvery(this.props.movies, 5).map((fourmovies, index) => (
+        return this.splitEvery(this.props.movies, 5).map((numOfMovies, index) => (
             <div className='columns grid-view__columns' key={index}>
-                {this.renderMovieCardsRow(fourmovies)}
+                {this.renderMovieCardsRow(numOfMovies)}
             </div>
         ))
     }

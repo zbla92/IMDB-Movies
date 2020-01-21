@@ -23,7 +23,6 @@ class MovieCard extends Component {
         return stars
     }
     checkImg(url) {
-        console.log(url)
         if (url.length < 60) return noImg
         else return url
     }

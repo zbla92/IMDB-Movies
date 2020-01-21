@@ -8,22 +8,6 @@
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
 }
-
-.navbar {
-    .container {
-        .active {
-            background-color: #FFF;
-            color: blue;
-            cursor: initial;
-        }
-
-        .non-active {
-            background-color: blue;
-            color: #FFF;
-        }
-    }
-}
-
 .navbar__brand {
     margin-left: 2vw;;
 }
@@ -31,7 +15,6 @@
 .navbar__brand__image {
     height: 50px;
 }
-
 .navbar__search {
     position: absolute;
     left: 35%;
@@ -46,4 +29,20 @@
 }
 .navbar__search::placeholder{
     color: rgba(255, 255, 255, 0.192);
+}
+
+
+.navbar__view{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 250%;
+    height: 100%;
+}
+
+.navbar__view__active{
+    color: $secondaryColor;
+}
+.navbar__view__non-active{
+    color: rgba(255, 255, 255, 0.336);
 }

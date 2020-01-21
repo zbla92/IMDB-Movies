@@ -1,6 +1,6 @@
 import React from 'react';
 import './gridSkeleton.scss'
-import skeletonImg from './skeletonImg.png'
+import skeletonImg from '../images/skeletonImg.png'
 
 const GridSkeleton = (props) => {
 
