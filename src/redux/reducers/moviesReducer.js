@@ -13,5 +13,10 @@ export default (state = initialState, action) => {
                 ...state,
                 movies: action.payload
             }
+        case FETCH_MOVIES_BY_KEYWORD:
+            return {
+                ...state,
+                movies: action.payload
+            }
     }
 }

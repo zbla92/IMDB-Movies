@@ -10,7 +10,7 @@ class GridView extends React.Component {
 
             return (
                 <div className='grid-view_column column' key={id}>
-                    <MovieCard imageUrl={imageUrl} title={title} year={release_date} vote_average={vote_average} />
+                    <MovieCard imageUrl={imageUrl} title={title} year={release_date} vote_average={vote_average} key={id} />
                 </div>
             );
         });

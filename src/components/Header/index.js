@@ -8,24 +8,39 @@ import { withRouter, Link } from 'react-router-dom';
 import { fetchMoviesByKeyword } from '../../redux/actions/movies'
 import MovieList from '../MovieList';
 
-const Header = (props) => {
-    const { pathname } = props.location;
+class Header extends React.Component {
+    state = {
+        keyword: ''
+    }
 
-    return (
-        <nav className="navbar" role="navigation" aria-label="main navigation">
-            <div className='container'>
-                <Link to='/'>
-                    <div className="navbar-brand navbar__brand">
-                        <img src={props.logo} className='navbar__brand__image' alt='logo' />
-                    </div>
-                </Link>
-                <input className="input is-rounded navbar__search" type="text" placeholder="Search Vivant Movie Database"></input>
-                <Link to="/" className={pathname === '/' ? 'active' : 'none-active'}>Card View</Link>
-                <Link to="/tableView" className={pathname === '/tableView' ? 'active' : 'none-active'}>Table view</Link>
+    handleChange = e => {
+        this.setState({ keyword: e.target.value })
+    }
+    onSubmit = e => {
+        e.preventDefault();
+        this.props.fetchMoviesByKeyword(this.state.keyword)
+    }
 
-            </div>
-        </nav>
-    )
+    render() {
+        const { pathname } = this.props.location;
+
+        return (
+            <nav className="navbar" role="navigation" aria-label="main navigation">
+                <div className='container'>
+                    <Link to='/'>
+                        <div className="navbar-brand navbar__brand">
+                            <img src={this.props.logo} className='navbar__brand__image' alt='logo' />
+                        </div>
+                    </Link>
+                    <form onSubmit={this.onSubmit}>
+                        <input className="input is-rounded navbar__search" type="text" placeholder="Search Vivant Movie Database" onChange={this.handleChange}></input>
+                    </form>
+                    <Link to="/" className={pathname === '/' ? 'active' : 'none-active'}>Card View</Link>
+                    <Link to="/tableView" className={pathname === '/tableView' ? 'active' : 'none-active'}>Table view</Link>
+                </div>
+            </nav>
+        )
+    }
 }
 
 MovieList.propTypes = {
@@ -37,3 +52,6 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, { fetchMoviesByKeyword })(withRouter(Header));
+
+
+

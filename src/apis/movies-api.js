@@ -21,8 +21,11 @@ const fetchMoviesByKeyword = async (query) => {
             api_key: API_KEY,
             query: query
         }
-    })
-}
+    });
+    return {
+        data: data.results
+    };
+};
 
 export default {
     fetchPopularMovies,
