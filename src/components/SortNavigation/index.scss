@@ -4,4 +4,25 @@
     margin-top: 100px;
     text-align: center;
     max-width: 50%;
+    font-size: 130%;
+    svg{
+        position: relative;
+        top: 2px;
+        right: 5px;
+        
+    }
 }
+
+.sort-navigation__btn {
+    border: 2px solid transparent;
+    &:hover{
+        color: rgb(128, 128, 128);
+        border-bottom: 1px solid;
+    }
+}
+
+.sort-navigation__btn__active{
+    border-bottom: 2px solid;
+    pointer-events: none;
+}
+

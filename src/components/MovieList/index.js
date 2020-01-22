@@ -3,18 +3,25 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { fetchPopularMovies } from '../../redux/actions/movies';
+import { clearErrors } from '../../redux/actions/ui';
 
 import GridView from './GridView';
 import TableView from './TableView';
 import Skeleton from '../../utils/GridSkeleton'
 
+
+
 class MovieList extends React.Component {
     componentDidMount() {
-        this.props.fetchPopularMovies(this.props.page, this.props.filter);
+        if (this.props.movies.length < 1) {
+            this.props.fetchPopularMovies(this.props.page, this.props.filter);
+        }
     }
 
     render() {
-        if (this.props.loading) {
+        const { movies, numOfPages, clearErrors } = this.props;
+        const { errors, currentPage } = this.props.ui
+        if (this.props.ui.loading) {
             return (
                 <div>
                     <Skeleton />
@@ -23,16 +30,16 @@ class MovieList extends React.Component {
         }
 
         if (this.props.type === 'grid') {
-            return <GridView movies={this.props.movies} />
+            return <GridView movies={movies} errors={errors} clearErrors={clearErrors} numOfPages={numOfPages} />
         } else {
-            return <TableView movies={this.props.movies} />
+            return <TableView movies={movies} errors={errors} clearErrors={clearErrors} numOfPages={numOfPages} />
         }
     }
 }
 
 MovieList.propTypes = {
     movies: PropTypes.array.isRequired,
-    loading: PropTypes.bool
+    ui: PropTypes.object
 };
 
 MovieList.defaultProps = {
@@ -41,7 +48,12 @@ MovieList.defaultProps = {
 
 const mapStateToProps = (state) => ({
     movies: state.data.movies,
-    loading: state.UI.loading
+    numOfPages: state.data.numOfPages,
+    ui: state.UI
 });
+const mapActionsToProps = {
+    fetchPopularMovies,
+    clearErrors
+}
 
-export default connect(mapStateToProps, { fetchPopularMovies })(MovieList);
+export default connect(mapStateToProps, mapActionsToProps)(MovieList);

@@ -22,6 +22,8 @@ class Header extends React.Component {
     onSubmit = e => {
         e.preventDefault();
         this.props.fetchMoviesByKeyword(this.state.keyword)
+        this.setState({ keyword: '' })
+
     }
 
 
@@ -41,7 +43,7 @@ class Header extends React.Component {
                         </div>
                     </Link>
                     <form onSubmit={this.onSubmit}>
-                        <input className="input is-rounded navbar__search" type="text" placeholder="Search Vivant Movie Database" onChange={this.handleChange}></input>
+                        <input className="input is-rounded navbar__search" type="text" value={this.state.keyword} placeholder="Search Vivant Movie Database" onChange={this.handleChange}></input>
                     </form>
                     <div className='navbar__view'>
                         <Link to="/" ><IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>

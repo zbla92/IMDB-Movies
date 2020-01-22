@@ -9,12 +9,11 @@ class MovieLine extends React.Component {
     render() {
         const { title, year } = this.props
         return (
-            <tbody>
-                <tr>
-                    <td>{title}</td>
-                    <td className='table-view__table__tbody__th has-text-right'>{this.dateToYear(year)}</td>
-                </tr>
-            </tbody>
+            <tr>
+                <td>{title}</td>
+                <td className='table-view__table__tbody__th has-text-right'>{this.dateToYear(year)}</td>
+            </tr>
+
         )
     }
 }

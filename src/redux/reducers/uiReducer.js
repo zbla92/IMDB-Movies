@@ -1,8 +1,9 @@
-import { LOADING_UI, STOP_LOADING_UI } from '../actions/types';
+import { LOADING_UI, STOP_LOADING_UI, SET_ERRORS, CLEAR_ERRORS, CHANGE_PAGE } from '../actions/types';
 
 const initialState = {
+    errors: false,
     loading: false,
-    errors: false
+    currentPage: 1
 }
 
 export default (state = initialState, action) => {
@@ -18,6 +19,21 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: false
+            }
+        case SET_ERRORS:
+            return {
+                ...state,
+                errors: action.payload
+            }
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                errors: false
+            }
+        case CHANGE_PAGE:
+            return {
+                ...state,
+                currentPage: parseInt(action.payload)
             }
     }
 }

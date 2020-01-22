@@ -1,7 +1,8 @@
 import { FETCH_POPULAR_MOVIES, FETCH_MOVIES_BY_KEYWORD } from '../actions/types';
 
 const initialState = {
-    movies: []
+    movies: [],
+    numOfPages: 1
 }
 
 export default (state = initialState, action) => {
@@ -11,12 +12,16 @@ export default (state = initialState, action) => {
         case FETCH_POPULAR_MOVIES:
             return {
                 ...state,
-                movies: action.payload
+                movies: action.payload.data,
+                numOfPages: action.payload.numOfPages
             }
         case FETCH_MOVIES_BY_KEYWORD:
-            return {
-                ...state,
-                movies: action.payload
-            }
+            if (action.payload.data.length > 3) {
+                return {
+                    ...state,
+                    movies: action.payload.data,
+                    numOfPages: action.payload.numOfPages
+                }
+            } else { return { ...state } }
     }
 }
