@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
-import { fetchMoviesByKeyword } from '../../redux/actions/movies'
+import { fetchMoviesByKeyword } from '../../redux/actions/movies';
+import { setFilters, setCurrentPage } from '../../redux/actions/ui'
 import MovieList from '../MovieList';
 
 //ICONS
@@ -15,6 +16,9 @@ class Header extends React.Component {
     state = {
         keyword: ''
     }
+    componentDidMount() {
+        this.handleNavBurger()
+    }
 
     handleChange = e => {
         this.setState({ keyword: e.target.value })
@@ -23,7 +27,21 @@ class Header extends React.Component {
         e.preventDefault();
         this.props.fetchMoviesByKeyword(this.state.keyword)
         this.setState({ keyword: '' })
+        this.props.setFilters('search')
+    }
+    onLogoClick = () => {
+        this.props.setCurrentPage(1)
+        window.location.reload()
+    }
 
+    handleNavBurger = () => {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#' + burger.dataset.target);
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('is-active');
+            nav.classList.toggle('is-active')
+        })
     }
 
     render() {
@@ -31,17 +49,25 @@ class Header extends React.Component {
         return (
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className='container'>
-                    <Link to='/'>
-                        <div className="navbar-brand navbar__brand">
-                            <img src={this.props.logo} className='navbar__brand__image' alt='logo' />
+                    <div className="navbar-brand">
+                        <Link to='/gridView/1'>
+                            <img src={this.props.logo} className='navbar-brand__image' alt='logo' onClick={() => this.onLogoClick()} />
+                        </Link>
+                        <span className='navbar-burger burger is-vcentered' data-target='navMenu'>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id='navMenu' className='navbar-menu '>
+                        <form onSubmit={this.onSubmit} className='navbar__form'>
+                            <input className="input is-rounded navbar__form__search is-vcentered" type="text" value={this.state.keyword} placeholder="Search Vivant Movie Database" onChange={this.handleChange}></input>
+                        </form>
+                        <div className='navbar__view navbar-end'>
+                            <Link to={`/gridView/${this.props.currentPage}`} ><IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>
+                            <Link to={`/tableView/${this.props.currentPage}`} ><IoIosList className={pathname.indexOf('tableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>
                         </div>
-                    </Link>
-                    <form onSubmit={this.onSubmit}>
-                        <input className="input is-rounded navbar__search" type="text" value={this.state.keyword} placeholder="Search Vivant Movie Database" onChange={this.handleChange}></input>
-                    </form>
-                    <div className='navbar__view'>
-                        <Link to={`/gridView/${this.props.currentPage}`} ><IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>
-                        <Link to={`/tableView/${this.props.currentPage}`} ><IoIosList className={pathname.indexOf('tableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>
+
                     </div>
                 </div>
             </nav>
@@ -57,7 +83,12 @@ const mapStateToProps = state => ({
     currentPage: state.UI.currentPage
 })
 
-export default connect(mapStateToProps, { fetchMoviesByKeyword })(withRouter(Header));
+const mapActionsToProps = {
+    setFilters,
+    fetchMoviesByKeyword,
+    setCurrentPage
+}
+export default connect(mapStateToProps, mapActionsToProps)(withRouter(Header));
 
 
 

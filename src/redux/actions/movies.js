@@ -10,6 +10,7 @@ const fetchPopularMovies = (page, filter) => async dispatch => {
             payload: movies
         });
         dispatch({ type: STOP_LOADING_UI })
+        noMoviesFetched(movies)
     } catch (err) {
         dispatch({ type: SET_ERRORS, payload: 'Something went wrong, try reloading the page.' })
     }
@@ -25,14 +26,19 @@ const fetchMoviesByKeyword = (query) => async dispatch => {
             payload: movies
         })
         dispatch({ type: STOP_LOADING_UI })
-        if (movies.data.length < 1) {
-            dispatch({
-                type: SET_ERRORS,
-                payload: 'No match, try searching different movie.'
-            })
-        }
+        noMoviesFetched(movies)
     } catch (err) {
         dispatch({ type: SET_ERRORS, payload: err })
+    }
+}
+
+// Helper functions
+const noMoviesFetched = (movies) => dispatch => {
+    if (movies.data.length < 1) {
+        dispatch({
+            type: SET_ERRORS,
+            payload: 'No match, try searching different movie.'
+        })
     }
 }
 

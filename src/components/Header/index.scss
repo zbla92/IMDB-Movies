@@ -4,40 +4,66 @@
     position: fixed;
     width: 100%;
     top: 0px;
+    height: 60px;
+}
+.navbar,
+.navbar-menu.is-active{
     background: rgba(0,0,0,0.8);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
 }
-.navbar__brand {
-    margin-left: 2vw;;
+.navbar-menu.is-active{
+        position: relative;
+    top: 7px;
+    width: 102%;
+    right: 1px;
+    .navbar__view{
+        font-size: 400%;
+        text-align: center;
+        a{
+            display: inline-block;
+            margin: 0 auto;
+            padding: 30px;
+        }
+    }
 }
 
-.navbar__brand__image {
-    height: 50px;
+.navbar-brand__image {
+    position: relative;
+    top: 6px;
+    height: 46px;
 }
-.navbar__search {
-    position: absolute;
-    left: 35%;
-    width: 30%;
-    height: 30px;
+.navbar__form{
+    width: 100%;
+    text-align: center;
+}
+.navbar__form__search {
+    display: inline-block;
+    margin: 0 auto;
+    // position: relative;
+    top: 3px;
+    width: 76%;
+    height: 32px;
     margin-top: 10px;
     background-color: #333333;
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.253);
     color: rgb(219, 219, 219);
+    text-align: center;
 }
-.navbar__search::placeholder{
+.navbar__form__search::placeholder{
     color: rgba(255, 255, 255, 0.192);
+    
 }
 
 
 .navbar__view{
-    position: absolute;
-    top: 0px;
-    right: 0px;
+    position: relative;
+    top: 5px;;
     font-size: 250%;
     height: 100%;
+
 }
 
 .navbar__view__active{

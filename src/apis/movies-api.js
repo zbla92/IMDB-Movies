@@ -29,8 +29,7 @@ const fetchMoviesByKeyword = async (query) => {
             }
         });
         return {
-            data: data.results,
-            numOfPages: data.total_pages
+            data: data.results
         };
     } catch (err) {
         console.log(`DANG ${err}`)
