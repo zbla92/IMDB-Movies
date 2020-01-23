@@ -5,7 +5,7 @@ const SET_ERRORS = 'SET_ERRORS';
 const STOP_LOADING_UI = 'STOP_LOADING_UI';
 const CLEAR_ERRORS = 'CLEAR_ERRORS';
 const CHANGE_PAGE = 'CHANGE_PAGE';
-const FILTER_BY = 'FILTER_BY'
+const FILTER_BY = 'FILTER_BY';
 
 export {
     FETCH_POPULAR_MOVIES,
@@ -15,5 +15,6 @@ export {
     STOP_LOADING_UI,
     CLEAR_ERRORS,
     CHANGE_PAGE,
-    FILTER_BY
+    FILTER_BY,
+
 };

@@ -58,7 +58,8 @@ const mapStateToProps = (state) => ({
 const mapActionsToProps = {
     fetchPopularMovies,
     clearErrors,
-    setCurrentPage
+    setCurrentPage,
+
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(withRouter(MovieList));

@@ -10,8 +10,6 @@ import { fetchPopularMovies } from '../../redux/actions/movies';
 
 class Pagination extends React.Component {
     nextPage(page) {
-        console.log('Fetching on a next page with page ', page, 'and fltering by ', this.props.filterBy)
-
         this.props.setCurrentPage(page)
         this.props.fetchPopularMovies(page, this.props.ui.filterBy)
     }
@@ -19,8 +17,7 @@ class Pagination extends React.Component {
 
 
     render() {
-        console.log(this.props)
-        const { numOfPages, ui: { currentPage, filterBy } } = this.props
+        const { numOfPages, ui: { currentPage } } = this.props
         const pageLinks = []
         let prevBtnDisabled = true;
         let nextBtnDisabled = false;

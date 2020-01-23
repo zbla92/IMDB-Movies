@@ -42,12 +42,6 @@ class GridView extends React.Component {
             },
             []
         )
-
-    updateCurrentPage = (page) => {
-        console.log(page)
-    }
-
-
     render() {
         if (this.props.errors) {
             alert(this.props.errors)

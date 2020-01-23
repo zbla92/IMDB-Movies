@@ -26,12 +26,6 @@ class Header extends React.Component {
 
     }
 
-
-    renderactiveView(CurrentPath, btnPath) {
-        console.log(CurrentPath.indexOf(btnPath))
-        if (CurrentPath.indexOf(btnPath) > 0) return { color: 'white' }
-    }
-
     render() {
         const { pathname } = this.props.location;
         return (

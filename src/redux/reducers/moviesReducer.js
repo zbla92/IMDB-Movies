@@ -22,6 +22,6 @@ export default (state = initialState, action) => {
                     movies: action.payload.data,
                     numOfPages: action.payload.numOfPages
                 }
-            } else { return { ...state } }
+            } else return { ...state }
     }
 }

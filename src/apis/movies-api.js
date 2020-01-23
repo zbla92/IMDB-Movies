@@ -28,7 +28,6 @@ const fetchMoviesByKeyword = async (query) => {
                 query: query
             }
         });
-        console.log(data.total_pages)
         return {
             data: data.results,
             numOfPages: data.total_pages

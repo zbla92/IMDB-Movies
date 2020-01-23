@@ -23,7 +23,6 @@ class SortNavigation extends React.Component {
     }
 
     sortBy(filter, e) {
-        console.log(filter, '======', this.props.filterBy)
         if (this.props.filterBy !== filter) {
             this.props.setFilters(filter)
             this.filterMoviesBy(filter)
@@ -35,7 +34,6 @@ class SortNavigation extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className='container sort-navigation'>
                 <div className='columns'>

@@ -7,7 +7,7 @@ import noImg from '../../images/sorry_no_img.png'
 class MovieCard extends Component {
     // Method to reduce the date since it comes in as year-mm-dd
     dateToYear(date) {
-        return date.slice(0, -6)
+        return date ? date.slice(0, -6) : 2000
     }
     // Method that returns number of stars based on popularity of the movie
     popularityStars(rating) {
