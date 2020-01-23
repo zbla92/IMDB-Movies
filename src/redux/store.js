@@ -7,7 +7,7 @@ import uiReducer from '../redux/reducers/uiReducer'
 const initialState = {
     UI: {
         loading: true,
-        currentPage: 1
+        currentPage: 1,
     }
 }
 

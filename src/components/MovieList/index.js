@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { fetchPopularMovies } from '../../redux/actions/movies';
-import { clearErrors } from '../../redux/actions/ui';
+import { clearErrors, setCurrentPage } from '../../redux/actions/ui';
+import { withRouter } from 'react-router-dom'
 
 import GridView from './GridView';
 import TableView from './TableView';
@@ -16,6 +17,9 @@ class MovieList extends React.Component {
         if (this.props.movies.length < 1) {
             this.props.fetchPopularMovies(this.props.page, this.props.filter);
         }
+        // componentDidMount() {
+        // this.props.setCurrentPage(this.props.match.params.page || 1)
+        // }
     }
 
     render() {
@@ -53,7 +57,8 @@ const mapStateToProps = (state) => ({
 });
 const mapActionsToProps = {
     fetchPopularMovies,
-    clearErrors
+    clearErrors,
+    setCurrentPage
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(MovieList);
+export default connect(mapStateToProps, mapActionsToProps)(withRouter(MovieList));

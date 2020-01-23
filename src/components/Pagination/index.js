@@ -7,19 +7,20 @@ import { withRouter } from 'react-router-dom'
 import { setCurrentPage } from '../../redux/actions/ui'
 import { fetchPopularMovies } from '../../redux/actions/movies';
 
+
 class Pagination extends React.Component {
     nextPage(page) {
-        console.log(page)
+        console.log('Fetching on a next page with page ', page, 'and fltering by ', this.props.filterBy)
 
         this.props.setCurrentPage(page)
-        this.props.fetchPopularMovies(page, 'top_rated')
+        this.props.fetchPopularMovies(page, this.props.ui.filterBy)
     }
 
 
 
     render() {
-        const { currentPage, numOfPages } = this.props
         console.log(this.props)
+        const { numOfPages, ui: { currentPage, filterBy } } = this.props
         const pageLinks = []
         let prevBtnDisabled = true;
         let nextBtnDisabled = false;
@@ -31,20 +32,20 @@ class Pagination extends React.Component {
         pageLinks.push(<button className='button is-dark' key={currentPage + 1} onClick={() => this.nextPage(currentPage + 1)}>{currentPage + 1}</button>)
 
         // Check if previous btn should be disabled or enabled
-        if (this.props.currentPage <= 1) {
+        if (currentPage <= 1) {
             prevBtnDisabled = true;
         } else prevBtnDisabled = false;
         // Check if next btn should be disabled or enabled
-        if (this.props.currentPage >= this.props.numOfPages) {
+        if (currentPage >= numOfPages) {
             nextBtnDisabled = false;
         } else nextBtnDisabled = false;
 
         return (
             <div className='buttons pagination'>
                 {currentPage > 10 ? <button className='button is-dark' key={currentPage - 10} onClick={() => this.nextPage(currentPage - 10)}>{currentPage - 10}</button> : null}
-                {<button className={`button is-dark `} disabled={prevBtnDisabled} key={Math.random()} onClick={() => this.nextPage(this.props.currentPage - 1)}>Prev</button>}
+                {<button className={`button is-dark `} disabled={prevBtnDisabled} key={Math.random()} onClick={() => this.nextPage(currentPage - 1)}>Prev</button>}
                 {pageLinks}
-                {this.props.currentPage >= this.props.numOfPages && !nextBtnDisabled ? null : <button className={`button is-dark`} key={this.props.currentPage} onClick={() => this.nextPage(this.props.currentPage + 1)}>Next</button>}
+                {currentPage >= numOfPages && !nextBtnDisabled ? null : <button className={`button is-dark`} key={currentPage} onClick={() => this.nextPage(currentPage + 1)}>Next</button>}
                 {numOfPages - currentPage > 10 ? <button className='button is-dark' key={currentPage + 10} onClick={() => this.nextPage(currentPage + 10)}>{currentPage + 10}</button> : null}
             </div>
         )
@@ -56,12 +57,12 @@ Pagination.defaultProps = {
 };
 
 Pagination.propTypes = {
-    currentPage: PropTypes.number,
+    ui: PropTypes.object.isRequired,
     setCurrentPage: PropTypes.func
 }
 
 const mapStateToProps = state => ({
-    currentPage: state.UI.currentPage,
+    ui: state.UI,
     numOfPages: state.data.numOfPages
 })
 const mapActionsToProps = {

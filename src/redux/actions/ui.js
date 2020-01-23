@@ -1,4 +1,4 @@
-import { CLEAR_ERRORS, CHANGE_PAGE } from './types';
+import { CLEAR_ERRORS, CHANGE_PAGE, FILTER_BY } from './types';
 
 const clearErrors = () => dispatch => {
     dispatch({
@@ -12,7 +12,14 @@ const setCurrentPage = page => dispatch => {
     })
     window.history.pushState(null, null, `/gridView/${page}`)
 }
+const setFilters = filterBy => dispatch => {
+    dispatch({
+        type: FILTER_BY,
+        payload: filterBy
+    })
+}
 export {
     clearErrors,
-    setCurrentPage
+    setCurrentPage,
+    setFilters
 }

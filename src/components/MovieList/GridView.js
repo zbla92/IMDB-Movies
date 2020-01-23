@@ -51,6 +51,7 @@ class GridView extends React.Component {
     render() {
         if (this.props.errors) {
             alert(this.props.errors)
+            window.location.reload()
         }
         return (
             <div className='container grid-view'>

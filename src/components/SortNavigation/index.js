@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { fetchPopularMovies } from '../../redux/actions/movies';
-import { setCurrentPage } from '../../redux/actions/ui'
+import { setCurrentPage, setFilters } from '../../redux/actions/ui'
 
 import { IoMdStar } from 'react-icons/io';
 import { MdDateRange } from 'react-icons/md';
@@ -15,19 +15,17 @@ import { withRouter } from 'react-router-dom';
 class SortNavigation extends React.Component {
     state = {
         viewType: 'gridView',
-        activeSorter: 'popular'
-
     }
     componentDidMount() {
         const view = this.props.location.pathname.split('/')[1]
         if (this.state.viewType !== view) {
-            this.setState({ viewType: view })
         }
     }
 
     sortBy(filter, e) {
-        if (this.state.activeSorter !== filter) {
-            this.setState({ activeSorter: filter })
+        console.log(filter, '======', this.props.filterBy)
+        if (this.props.filterBy !== filter) {
+            this.props.setFilters(filter)
             this.filterMoviesBy(filter)
             this.props.setCurrentPage(1)
         }
@@ -37,27 +35,35 @@ class SortNavigation extends React.Component {
     }
 
     render() {
-        console.log(this.state)
+        console.log(this.props)
         return (
             <div className='container sort-navigation'>
                 <div className='columns'>
-                    <div className={`column sort-navigation__btn ${this.state.activeSorter === 'top_rated' ? 'sort-navigation__btn__active' : ''}`} onClick={() => { this.sortBy('top_rated') }}><IoMdStar /> <span>Rating</span></div>
-                    <div className={`column sort-navigation__btn ${this.state.activeSorter === 'popular' ? 'sort-navigation__btn__active' : ''}`} onClick={() => { this.sortBy('popular') }} > <AiOutlineFire /> <span>Popularity</span></div>
-                    <div className={`column sort-navigation__btn ${this.state.activeSorter === 'trending' ? 'sort-navigation__btn__active' : ''}`} onClick={() => { this.sortBy('trending') }} > <MdDateRange /> <span>Trending</span></div>
+                    <div className={`column sort-navigation__btn ${this.props.filterBy === 'top_rated' ? 'sort-navigation__btn__active' : ''}`} onClick={() => { this.sortBy('top_rated') }}><IoMdStar /> <span>Rating</span></div>
+                    <div className={`column sort-navigation__btn ${this.props.filterBy === 'popular' ? 'sort-navigation__btn__active' : ''}`} onClick={() => { this.sortBy('popular') }} > <AiOutlineFire /> <span>Popularity</span></div>
+                    <div className={`column sort-navigation__btn ${this.props.filterBy === 'trending' ? 'sort-navigation__btn__active' : ''}`} onClick={() => { this.sortBy('trending') }} > <MdDateRange /> <span>Trending</span></div>
                 </div>
             </div>
         )
     }
 }
 
+SortNavigation.defaultProps = {
+    filterBy: 'popular'
+}
+
 SortNavigation.propTypes = {
-    fetchPopularMovies: PropTypes.func.isRequired
+    fetchPopularMovies: PropTypes.func.isRequired,
+    filterBy: PropTypes.string.isRequired
 }
 
 const mapActionsToProps = {
     fetchPopularMovies,
-    setCurrentPage
-
+    setCurrentPage,
+    setFilters
 }
+const mapStateToProps = state => ({
+    filterBy: state.UI.filterBy
+})
 
-export default connect(null, mapActionsToProps)(withRouter(SortNavigation))
+export default connect(mapStateToProps, mapActionsToProps)(withRouter(SortNavigation))

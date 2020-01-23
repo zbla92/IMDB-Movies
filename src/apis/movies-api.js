@@ -5,10 +5,10 @@ const API_URL = 'https://api.themoviedb.org/3/',
 
 const fetchPopularMovies = async (page = 1, filter = 'popular') => {
     try {
-        const { data } = await axios.get(`${API_URL + 'movie/'}${filter}`, {
+        const { data } = await axios.get(`${API_URL}${adjustUrlForFilters(filter)}`, {
             params: {
                 api_key: API_KEY,
-                page
+                page,
             }
         });
         return {
@@ -16,7 +16,7 @@ const fetchPopularMovies = async (page = 1, filter = 'popular') => {
             numOfPages: data.total_pages
         };
     } catch (err) {
-        console.log(`err}`)
+        console.log(err, ' please wait')
     }
 };
 
@@ -37,6 +37,14 @@ const fetchMoviesByKeyword = async (query) => {
         console.log(`DANG ${err}`)
     }
 };
+
+// Helper functions
+const adjustUrlForFilters = (filter) => {
+    if (filter === 'trending') {
+        return `${filter}/movie/day`
+    }
+    return `movie/${filter}`
+}
 
 export default {
     fetchPopularMovies,

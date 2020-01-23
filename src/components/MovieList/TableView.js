@@ -12,6 +12,7 @@ class TableView extends React.Component {
     render() {
         if (this.props.errors) {
             alert(this.props.errors)
+            window.location.reload()
         }
 
         const renderMovies = this.props.movies.map(movie => {
