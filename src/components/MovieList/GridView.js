@@ -56,8 +56,6 @@ class GridView extends React.Component {
             <div className='container grid-view'>
                 {this.renderMovieCards()}
                 {this.props.numOfPages > 1 ? <Pagination
-                    numOfPages={this.props.numOfPages}
-                    currentPage={this.state.currentPage}
                 /> : null}
             </div>
         )

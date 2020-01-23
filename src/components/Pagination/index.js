@@ -2,16 +2,17 @@ import './index.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+
 import { setCurrentPage } from '../../redux/actions/ui'
+import { fetchPopularMovies } from '../../redux/actions/movies';
 
 class Pagination extends React.Component {
-    componentDidMount() {
-        this.props.setCurrentPage(this.props.match.params.page || 1)
-    }
-
     nextPage(page) {
+        console.log(page)
+
         this.props.setCurrentPage(page)
+        this.props.fetchPopularMovies(page, 'top_rated')
     }
 
 
@@ -60,10 +61,12 @@ Pagination.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    currentPage: state.UI.currentPage
+    currentPage: state.UI.currentPage,
+    numOfPages: state.data.numOfPages
 })
 const mapActionsToProps = {
-    setCurrentPage
+    setCurrentPage,
+    fetchPopularMovies
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(withRouter(Pagination));

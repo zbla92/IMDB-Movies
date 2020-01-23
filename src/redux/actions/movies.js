@@ -2,6 +2,7 @@ import { FETCH_POPULAR_MOVIES, FETCH_MOVIES_BY_KEYWORD, LOADING_UI, STOP_LOADING
 import moviesApi from '../../apis/movies-api'
 
 const fetchPopularMovies = (page, filter) => async dispatch => {
+    console.log('fetching ', 'page: ', page, 'filter', filter)
     try {
         const movies = await moviesApi.fetchPopularMovies(page, filter);
         dispatch({ type: LOADING_UI })

@@ -11,7 +11,7 @@ class MovieCard extends Component {
     }
     // Method that returns number of stars based on popularity of the movie
     popularityStars(rating) {
-        rating = Math.floor(rating)
+        rating = Math.round(rating)
         const stars = [<IoMdStarOutline key={1} />, <IoMdStarOutline key={2} />, <IoMdStarOutline key={3} />, <IoMdStarOutline key={4} />, <IoMdStarOutline key={5} />]
         for (let i = 1; i <= rating; i++) {
             if (i % 2 === 0) {

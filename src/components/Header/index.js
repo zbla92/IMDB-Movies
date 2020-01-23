@@ -46,8 +46,8 @@ class Header extends React.Component {
                         <input className="input is-rounded navbar__search" type="text" value={this.state.keyword} placeholder="Search Vivant Movie Database" onChange={this.handleChange}></input>
                     </form>
                     <div className='navbar__view'>
-                        <Link to="/" ><IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>
-                        <Link to="/tableView" ><IoIosList className={pathname.indexOf('tableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>
+                        <Link to={`/gridView/${this.props.currentPage}`} ><IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>
+                        <Link to={`/tableView/${this.props.currentPage}`} ><IoIosList className={pathname.indexOf('tableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>
                     </div>
                 </div>
             </nav>
@@ -56,11 +56,11 @@ class Header extends React.Component {
 }
 
 MovieList.propTypes = {
-    movies: PropTypes.array
+    currentPage: PropTypes.number
 };
 
 const mapStateToProps = state => ({
-    movies: state.movies
+    currentPage: state.UI.currentPage
 })
 
 export default connect(mapStateToProps, { fetchMoviesByKeyword })(withRouter(Header));

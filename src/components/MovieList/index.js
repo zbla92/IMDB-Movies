@@ -20,7 +20,7 @@ class MovieList extends React.Component {
 
     render() {
         const { movies, numOfPages, clearErrors } = this.props;
-        const { errors, currentPage } = this.props.ui
+        const { errors } = this.props.ui
         if (this.props.ui.loading) {
             return (
                 <div>
