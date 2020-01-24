@@ -12,9 +12,13 @@ class Pagination extends React.Component {
     nextPage(page) {
         this.props.setCurrentPage(page)
         this.props.fetchPopularMovies(page, this.props.ui.filterBy)
+        this.nextPageMoble()
     }
-
-
+    nextPageMoble() {
+        if (window.screen.width <= 550) {
+            window.scrollTo(0, 0)
+        }
+    }
 
     render() {
         const { numOfPages, ui: { currentPage } } = this.props
@@ -40,7 +44,7 @@ class Pagination extends React.Component {
         return (
             <div className='buttons pagination'>
                 {currentPage > 10 ? <button className='button is-dark' key={currentPage - 10} onClick={() => this.nextPage(currentPage - 10)}>{currentPage - 10}</button> : null}
-                {<button className={`button is-dark `} disabled={prevBtnDisabled} key={Math.random()} onClick={() => this.nextPage(currentPage - 1)}>Prev</button>}
+                {<button className={`button is-dark `} disabled={prevBtnDisabled} key={currentPage - 1} onClick={() => this.nextPage(currentPage - 1)}>Prev</button>}
                 {pageLinks}
                 {currentPage >= numOfPages && !nextBtnDisabled ? null : <button className={`button is-dark`} key={currentPage} onClick={() => this.nextPage(currentPage + 1)}>Next</button>}
                 {numOfPages - currentPage > 10 ? <button className='button is-dark' key={currentPage + 10} onClick={() => this.nextPage(currentPage + 10)}>{currentPage + 10}</button> : null}

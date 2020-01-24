@@ -15,10 +15,6 @@
 
 .sort-navigation__btn {
     border: 2px solid transparent;
-    &:hover{
-        color: rgb(128, 128, 128);
-        border-bottom: 1px solid;
-    }
 }
 
 .sort-navigation__btn__active{
@@ -26,3 +22,11 @@
     pointer-events: none;
 }
 
+@media only screen and (min-width: 1024) {
+    .sort-navigation__btn {
+        &:hover{
+            color: rgb(128, 128, 128);
+            border-bottom: 1px solid;
+        }
+    }
+}

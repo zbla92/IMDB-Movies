@@ -67,6 +67,9 @@
     .movie-card__overlay{
         color: rgb(26, 25, 25);
         text-align: center;
+        &:hover{
+            background-color: inherit;
+        }
     }
     
     .movie-card__overlay__title{

@@ -14,10 +14,10 @@ import { IoMdGrid, IoIosList } from 'react-icons/io';
 
 class Header extends React.Component {
     state = {
-        keyword: ''
+        keyword: '',
     }
     componentDidMount() {
-        this.handleNavBurger()
+        // this.handleNavBurger()
     }
 
     handleChange = e => {
@@ -28,20 +28,18 @@ class Header extends React.Component {
         this.props.fetchMoviesByKeyword(this.state.keyword)
         this.setState({ keyword: '' })
         this.props.setFilters('search')
+        this.handleOpen()
     }
     onLogoClick = () => {
         this.props.setCurrentPage(1)
         window.location.reload()
     }
 
-    handleNavBurger = () => {
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#' + burger.dataset.target);
-
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('is-active');
-            nav.classList.toggle('is-active')
-        })
+    handleOpen = () => {
+        var burger = document.querySelector('.burger')
+        var nav = document.querySelector('#navMenu')
+        burger.classList.toggle('is-active')
+        nav.classList.toggle('is-active')
     }
 
     render() {
@@ -53,19 +51,19 @@ class Header extends React.Component {
                         <Link to='/gridView/1'>
                             <img src={this.props.logo} className='navbar-brand__image' alt='logo' onClick={() => this.onLogoClick()} />
                         </Link>
-                        <span className='navbar-burger burger is-vcentered' data-target='navMenu'>
+                        <span className='navbar-burger burger is-vcentered' data-target='navMenu' onClick={(e) => { this.handleOpen() }}>
                             <span></span>
                             <span></span>
                             <span></span>
                         </span>
                     </div>
-                    <div id='navMenu' className='navbar-menu '>
+                    <div id='navMenu' className='navbar-menu'>
                         <form onSubmit={this.onSubmit} className='navbar__form'>
                             <input className="input is-rounded navbar__form__search is-vcentered" type="text" value={this.state.keyword} placeholder="Search Vivant Movie Database" onChange={this.handleChange}></input>
                         </form>
                         <div className='navbar__view navbar-end'>
-                            <Link to={`/gridView/${this.props.currentPage}`} ><IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>
-                            <Link to={`/tableView/${this.props.currentPage}`} ><IoIosList className={pathname.indexOf('tableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} /></Link>
+                            <Link to={`/gridView/${this.props.currentPage}`} ><IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} onClick={(e) => this.handleOpen()} /></Link>
+                            <Link to={`/tableView/${this.props.currentPage}`} ><IoIosList className={pathname.indexOf('tableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} onClick={(e) => this.handleOpen()} /></Link>
                         </div>
 
                     </div>
