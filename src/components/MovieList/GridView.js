@@ -14,15 +14,13 @@ class GridView extends React.Component {
     }
 
     renderMovieCardsRow(numOfMovies) {
-        return numOfMovies.map(({ id, poster_path, title, release_date, vote_average }) => {
+        const rez = numOfMovies.map(({ id, poster_path, title, release_date, vote_average }) => {
             const imageUrl = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`;
-
             return (
-                <div className='grid-view_column column is-vcentered' key={id}>
-                    <MovieCard imageUrl={imageUrl} title={title} year={release_date} vote_average={vote_average} key={id} />
-                </div>
+                <MovieCard imageUrl={imageUrl} title={title} year={release_date} vote_average={vote_average} key={id} />
             );
         });
+        return rez
     }
 
     renderMovieCards() {
@@ -48,8 +46,10 @@ class GridView extends React.Component {
             window.location.reload()
         }
         return (
-            <div className='container grid-view'>
-                {this.renderMovieCards()}
+            <div className='grid-view'>
+                <div className='grid-view__container container'>
+                    {this.renderMovieCardsRow(this.props.movies)}
+                </div>
                 {this.props.numOfPages > 1 ? <Pagination
                 /> : null}
             </div>

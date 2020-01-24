@@ -1,40 +1,103 @@
+.movie-card{
+   position: relative;
+   max-width: 256px;
+    max-height: 384px;
+}
+
 .movie-card__overlay {
     position: absolute;
-    width: 100%;
-    height: 100%;
     z-index: 1;
     top: 0;
     color: transparent;
-    max-width: 249.59px;
-    max-height: 374.39px;
-
+    width: 100%;
+    height: 100%;
 }
 .movie-card__overlay:hover{
-    background-color: rgba(255, 255, 255, 0.5);
-    transition-duration: 0.2s;
+    background-color: rgba(255, 255, 255, 0.767);
+    transition-duration: 0.4s;
     color: black;
     text-align: center;
+    -webkit-box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.86);
+    -moz-box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.86);
+    box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.86);
 }
 
 .movie-card__overlay__title{
     padding: 40px 10px 20px 10px;
-    line-height: 100%;
-    
+    line-height: 110%;
+    font-size: 200%;
 }
 .movie-card__overlay__year{
     position: absolute;
-    top: 50%;
-    left: 40%;
-    text-align: center;
+    top: 185px;
+    left: 100px;
+    font-size: 140%;
 }
 .movie-card__overlay__popularity{
     position: absolute;
-    top: 75%;
-    left:26%;
+    top: 310px;
+    left:74px;
     text-align: center;
+    font-size: 130%;
 }
 
-img{
-    max-width: 249.59px;
-    max-height: 374.39px;
+
+@media only screen and (max-width: 1215px) {
+    .movie-card__overlay {
+        height: 98.3%;
+    }
+
+    .movie-card__overlay__title{
+        padding: 36px 10px 20px 10px;
+        font-size: 155%;
+    }
+    .movie-card__overlay__year{
+        left: 100px;
+        font-size: 130%;
+    }
+    .movie-card__overlay__popularity{
+        top: 290px;
+        left:74px;
+        font-size: 120%;
+    }
+  }
+
+
+  @media only screen and (max-width: 1024px) {
+    .movie-card__overlay{
+        color: rgb(26, 25, 25);
+        text-align: center;
+    }
+    
+    .movie-card__overlay__title{
+        padding: 5px 10px 20px 10px;
+        line-height: 110%;
+        font-size: 2vw;
+        background: rgb(2,0,36);
+        background: linear-gradient(0deg, rgba(0,0,0,0) 9%, rgba(0,0,0,0.5900735294117647) 35%, rgba(0,0,0,1) 100%);
+        color: white;
+    }
+    .movie-card__overlay__year{
+        position: absolute;
+        top:85%;
+        left: 0;
+        height: 15%;
+        font-size: 140%;
+        width: 100%;
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,0,0,0) 9%, rgba(0,0,0,0.5900735294117647) 35%, rgba(0,0,0,1) 100%);
+        color: white;
+    }
+    .movie-card__overlay__popularity{
+        display: none;
+    }
+  }
+
+  @media only screen and (max-width: 550px) {
+    .movie-card{
+        position: relative;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0 auto;
+     }
 }

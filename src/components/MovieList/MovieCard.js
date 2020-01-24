@@ -32,14 +32,14 @@ class MovieCard extends Component {
 
 
         return (
-            <figure className="image is-2by3">
+            <div className="movie-card">
                 <img src={this.checkImg(imageUrl)} alt='movie_image' />
                 <div className="movie-card__overlay">
-                    <h1 className='is-size-3 movie-card__overlay__title'>{title}</h1>
-                    <span className="is-size-5 movie-card__overlay__year">{this.dateToYear(year)}</span>
-                    <span className='is-size-4 movie-card__overlay__popularity'>{this.popularityStars(vote_average)}</span>
+                    <h1 className='movie-card__overlay__title'>{title}</h1>
+                    <span className="movie-card__overlay__year">{this.dateToYear(year)}</span>
+                    <span className='movie-card__overlay__popularity'>{this.popularityStars(vote_average)}</span>
                 </div>
-            </figure >
+            </div >
         )
     }
 }
