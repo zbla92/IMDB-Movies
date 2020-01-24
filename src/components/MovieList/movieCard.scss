@@ -72,7 +72,8 @@
     .movie-card__overlay__title{
         padding: 5px 10px 20px 10px;
         line-height: 110%;
-        font-size: 2vw;
+        height: 20%;
+        font-size: calc(0.5vw + 3.5vh);
         background: rgb(2,0,36);
         background: linear-gradient(0deg, rgba(0,0,0,0) 9%, rgba(0,0,0,0.5900735294117647) 35%, rgba(0,0,0,1) 100%);
         color: white;
@@ -100,4 +101,13 @@
         max-height: 100%;
         margin: 0 auto;
      }
+     .movie-card__overlay__title{
+        padding: 10px 10px 20px 10px;
+        font-size: calc(2vw + 3vh);
+    }
+    .movie-card__overlay__year{
+        position: absolute;
+        top:92%;
+        height: 9%;
+    }
 }
