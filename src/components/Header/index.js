@@ -36,10 +36,12 @@ class Header extends React.Component {
     }
 
     handleOpen = () => {
-        var burger = document.querySelector('.burger')
-        var nav = document.querySelector('#navMenu')
-        burger.classList.toggle('is-active')
-        nav.classList.toggle('is-active')
+        if (window.screen.width < 1024) {
+            var burger = document.querySelector('.burger')
+            var nav = document.querySelector('#navMenu')
+            burger.classList.toggle('is-active')
+            nav.classList.toggle('is-active')
+        }
     }
 
     render() {

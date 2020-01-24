@@ -9,19 +9,15 @@
         position: relative;
         top: 2px;
         right: 5px;
-        
     }
 }
-
 .sort-navigation__btn {
     border: 2px solid transparent;
 }
-
 .sort-navigation__btn__active{
     border-bottom: 2px solid;
     pointer-events: none;
 }
-
 @media only screen and (min-width: 1024) {
     .sort-navigation__btn {
         &:hover{
