@@ -68,6 +68,15 @@ transition: opacity 1s;
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         grid-gap: 0.5rem;
     } 
+    .table-view__span{
+        &:hover{
+            cursor: pointer;
+            color: $primaryColor;
+            .view-table__tooltiptext{
+                visibility: hidden;
+            }
+        }
+    }
 }
 @media only screen and (max-width: 600px) {
     .grid-view__container{
