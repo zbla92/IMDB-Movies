@@ -9,3 +9,22 @@
     height: 450px;
     width: 300px;
 }
+
+@media only screen and  (min-width: 1025px)and (max-width: 1215px) {
+    .movie-card__faker{
+        height: 381px;
+        width: 254px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .movie-card__skeleton{
+        background-color: $backgroundColor;
+    }
+    .movie-card__faker{
+        height: 450px;
+        width: 300px;
+        background: rgb(180, 180, 180);
+        margin: 0 auto;
+        border-radius: 5px;
+    }
+}

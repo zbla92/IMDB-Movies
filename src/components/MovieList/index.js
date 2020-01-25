@@ -8,7 +8,8 @@ import { withRouter } from 'react-router-dom'
 
 import GridView from './GridView';
 import TableView from './TableView';
-import Skeleton from '../Skeleton/GridSkeleton'
+import GridSkeleton from '../Skeleton/GridSkeleton';
+import TableSkeleton from '../Skeleton/TableSkeleton';
 
 
 
@@ -20,12 +21,13 @@ class MovieList extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         const { movies, numOfPages, clearErrors } = this.props;
         const { errors } = this.props.ui
         if (this.props.ui.loading) {
             return (
                 <div>
-                    <Skeleton />
+                    {this.props.location.pathname.indexOf('gridView') > -1 ? <GridSkeleton /> : <TableSkeleton />}
                 </div>
             )
         }

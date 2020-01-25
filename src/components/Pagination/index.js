@@ -15,7 +15,6 @@ class Pagination extends React.Component {
     }
 
     generateButton(btnPage, isDisabled, numOfPages, currentPage, name = btnPage, className = '') {
-
         if (btnPage >= 1 && btnPage <= numOfPages) {
             return (
                 <button className={`button ${className}`}
@@ -42,11 +41,11 @@ class Pagination extends React.Component {
                 {this.generateButton(currentPage > 2 ? 1 : null, false, numOfPages, currentPage)}
                 {currentPage > 2 ? dots : null}
                 {/*Button that appears to be -1 pages from current page*/}
-                {this.generateButton(currentPage - 1, false, numOfPages, currentPage)}
+                {this.generateButton(window.innerWidth < 600 ? null : currentPage - 1, false, numOfPages, currentPage)}
                 {/** Current page */}
                 {this.generateButton(currentPage, true, numOfPages, currentPage, currentPage, 'is-primary')}
                 {/* Next Page*/}
-                {this.generateButton(currentPage + 1, false, numOfPages, currentPage)}
+                {this.generateButton(window.innerWidth < 600 ? null : currentPage + 1, false, numOfPages, currentPage)}
                 {/** +10 pages */}
                 {currentPage < numOfPages ? dots : null}
                 {this.generateButton(currentPage < numOfPages ? numOfPages : null, false, numOfPages, currentPage)}

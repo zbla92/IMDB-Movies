@@ -72,6 +72,6 @@ transition: opacity 1s;
 @media only screen and (max-width: 600px) {
     .grid-view__container{
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        grid-gap: 0.1rem;
+        grid-gap: 0.5rem;
     } 
 }
