@@ -12,8 +12,8 @@ function Footer() {
                     <a href='https://chateaudepommard.com' className='footer__icon footer__icon--chateau'>Chateau De Pommard</a>
                 </div>
                 <div className="footer__dependencies footer__links--right">
-                    <a href='http://netflix.com' className='footer__icon footer__icon--netflix'>Netflix</a>
-                    <a href='http://hbo.com' className='footer__icon footer__icon--hbo'>HBO</a>
+                    <a href='http://netflix.com' className='footer__icon footer__icon--netflix'>React</a>
+                    <a href='http://hbo.com' className='footer__icon footer__icon--hbo'>Redux</a>
                     <a href='https://popcorntime-online.ch/' className='footer__icon footer__icon--popcorn'>Popcorn Time</a>
                     <a href='https://chateaudepommard.com' className='footer__icon footer__icon--chateau'>Chateau De Pommard</a>
                 </div>

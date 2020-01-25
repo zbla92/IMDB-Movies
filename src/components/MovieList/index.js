@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { fetchPopularMovies } from '../../redux/actions/movies';
-import { clearErrors, setCurrentPage } from '../../redux/actions/ui';
+import { clearErrors } from '../../redux/actions/ui';
 import { withRouter } from 'react-router-dom'
 
 import GridView from './GridView';
@@ -16,13 +16,25 @@ import TableSkeleton from '../Skeleton/TableSkeleton';
 class MovieList extends React.Component {
     componentDidMount() {
         if (this.props.movies.length < 1) {
-            this.props.fetchPopularMovies(this.props.page, this.props.filter);
+            this.props.fetchPopularMovies(this.props.page, this.props.ui.filterBy)
+                .catch(ex => {
+                    this.props.history.push('/');
+                });
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.page !== prevProps.page) {
+            this.props.fetchPopularMovies(this.props.page, this.props.ui.filterBy)
+                .catch(ex => {
+                    this.props.history.push('/');
+                });
         }
     }
 
     render() {
-        const { movies, numOfPages, clearErrors } = this.props;
-        const { errors } = this.props.ui
+        const { movies, numOfPages, clearErrors, page } = this.props;
+        const { errors } = this.props.ui;
         if (this.props.ui.loading) {
             return (
                 <div>
@@ -32,9 +44,9 @@ class MovieList extends React.Component {
         }
 
         if (this.props.type === 'grid') {
-            return <GridView movies={movies} errors={errors} clearErrors={clearErrors} numOfPages={numOfPages} />
+            return <GridView movies={movies} errors={errors} clearErrors={clearErrors} numOfPages={numOfPages} page={page} />
         } else {
-            return <TableView movies={movies} errors={errors} clearErrors={clearErrors} numOfPages={numOfPages} />
+            return <TableView movies={movies} errors={errors} clearErrors={clearErrors} numOfPages={numOfPages} page={page} />
         }
     }
 }
@@ -55,8 +67,7 @@ const mapStateToProps = (state) => ({
 });
 const mapActionsToProps = {
     fetchPopularMovies,
-    clearErrors,
-    setCurrentPage,
+    clearErrors
 
 }
 

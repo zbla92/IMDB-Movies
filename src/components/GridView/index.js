@@ -8,7 +8,7 @@ class GridView extends Component {
         return (
             <Fragment>
                 <SortNavigation />
-                <MovieList type='grid' page={this.props.match.params.page || 1} />
+                <MovieList type='grid' page={parseInt(this.props.match.params.page, 10) || 1} />
             </Fragment>
         )
     }

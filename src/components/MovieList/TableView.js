@@ -13,18 +13,19 @@ class TableView extends React.Component {
     }
 
     sortMoviesByYear = movies => {
-        const sorted = movies.sort((a, b) => {
+        const sorted = movies.slice().sort((a, b) => {
             return a.release_date > b.release_date ? -1 : a.release_date < b.release_date ? 1 : 0
         })
         this.setState({ movies: sorted })
     }
 
     sortMoviesAlphabetically = movies => {
-        const sorted = movies.sort((a, b) => {
+        const sorted = movies.slice().sort((a, b) => {
             const movieA = a.title.charAt(0);
             const movieB = b.title.charAt(0);
             return movieA < movieB ? -1 : movieA > movieB ? 1 : 0
-        })
+        });
+
         this.setState({ movies: sorted })
     }
 
@@ -34,7 +35,7 @@ class TableView extends React.Component {
             window.location.reload()
         }
 
-        const renderMovies = (movies = this.props.movies) => movies.map(movie => {
+        const renderMovies = () => this.state.movies.map(movie => {
             return <MovieLine title={movie.title} year={movie.release_date} key={movie.id} />
         })
         return (

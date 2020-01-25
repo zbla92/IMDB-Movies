@@ -6,8 +6,7 @@ import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
 import { fetchMoviesByKeyword } from '../../redux/actions/movies';
-import { setFilters, setCurrentPage } from '../../redux/actions/ui'
-import MovieList from '../MovieList';
+import { setFilters } from '../../redux/actions/ui';
 
 //ICONS
 import { IoMdGrid, IoIosList } from 'react-icons/io';
@@ -23,13 +22,16 @@ class Header extends React.Component {
     onSubmit = e => {
         e.preventDefault();
         this.props.fetchMoviesByKeyword(this.state.keyword)
+            .catch(ex => {
+                alert('Something failed');
+            });
         this.setState({ keyword: '' })
         this.props.setFilters('search')
         this.handleOpen()
     }
     onLogoClick = () => {
-        this.props.setCurrentPage(1)
-        window.location.reload()
+        this.props.setFilters('popular');
+        this.props.history.push(`/gridView/1`);
     }
 
     handleOpen = () => {
@@ -42,7 +44,9 @@ class Header extends React.Component {
     }
 
     render() {
-        const { pathname } = this.props.location;
+        const { location: { pathname } } = this.props;
+        const page = parseInt(pathname.split('/').pop(), 10);
+
         return (
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className='container'>
@@ -61,8 +65,8 @@ class Header extends React.Component {
                             <input className="input is-rounded navbar__form__search is-vcentered" type="text" value={this.state.keyword} placeholder="Search Vivant Movie Database" onChange={this.handleChange}></input>
                         </form>
                         <div className='navbar__view navbar-end'>
-                            <Link to={`/gridView/${this.props.currentPage}`} ><IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} onClick={(e) => this.handleOpen()} /></Link>
-                            <Link to={`/tableView/${this.props.currentPage}`} ><IoIosList className={pathname.indexOf('tableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} onClick={(e) => this.handleOpen()} /></Link>
+                            <Link to={`/gridView/${page}`} ><IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} onClick={(e) => this.handleOpen()} /></Link>
+                            <Link to={`/tableView/${page}`} ><IoIosList className={pathname.indexOf('tableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} onClick={(e) => this.handleOpen()} /></Link>
                         </div>
 
                     </div>
@@ -72,20 +76,13 @@ class Header extends React.Component {
     }
 }
 
-MovieList.propTypes = {
-    currentPage: PropTypes.number
-};
-
-const mapStateToProps = state => ({
-    currentPage: state.UI.currentPage
-})
-
 const mapActionsToProps = {
     setFilters,
-    fetchMoviesByKeyword,
-    setCurrentPage
-}
-export default connect(mapStateToProps, mapActionsToProps)(withRouter(Header));
+    fetchMoviesByKeyword
+};
+
+
+export default connect(null, mapActionsToProps)(withRouter(Header));
 
 
 

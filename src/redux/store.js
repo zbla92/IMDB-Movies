@@ -6,8 +6,7 @@ import uiReducer from '../redux/reducers/uiReducer'
 
 const initialState = {
     UI: {
-        loading: true,
-        currentPage: 1,
+        loading: true
     }
 }
 
@@ -18,7 +17,7 @@ const reducers = combineReducers({
     data: movieReducer
 })
 
-// const store = createStore(reducers, initialState, compose(applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
-const store = createStore(reducers, initialState, applyMiddleware(...middleware))
+const store = createStore(reducers, initialState, compose(applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+// const store = createStore(reducers, initialState, applyMiddleware(...middleware))
 
 export default store

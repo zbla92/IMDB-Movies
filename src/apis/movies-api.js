@@ -16,9 +16,8 @@ const fetchPopularMovies = async (page = 1, filter = 'popular') => {
             data: data.results,
             numOfPages: data.total_pages
         };
-
     } catch (err) {
-        alert(err, ' please reload the page')
+        throw new Error(err[0]);
     }
 };
 
@@ -35,7 +34,7 @@ const fetchMoviesByKeyword = async (query) => {
             data: data.results
         };
     } catch (err) {
-        alert(err, ' please reload the page')
+        throw new Error(err[0]);
     }
 };
 

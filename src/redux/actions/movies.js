@@ -12,7 +12,7 @@ const fetchPopularMovies = (page, filter) => async dispatch => {
         dispatch({ type: STOP_LOADING_UI })
         noMoviesFetched(movies)
     } catch (err) {
-        dispatch({ type: SET_ERRORS, payload: 'Something went wrong, try reloading the page.' })
+        throw err;
     }
 }
 
@@ -27,7 +27,7 @@ const fetchMoviesByKeyword = (query) => async dispatch => {
         dispatch({ type: STOP_LOADING_UI })
         noMoviesFetched(movies)
     } catch (err) {
-        dispatch({ type: SET_ERRORS, payload: err })
+        throw err;
     }
 }
 

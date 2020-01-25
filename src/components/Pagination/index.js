@@ -4,23 +4,22 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 
-import { setCurrentPage } from '../../redux/actions/ui'
 import { fetchPopularMovies } from '../../redux/actions/movies';
 
 
 class Pagination extends React.Component {
+
     nextPage(page) {
-        this.props.setCurrentPage(page)
         this.props.fetchPopularMovies(page, this.props.ui.filterBy)
     }
 
-    generateButton(btnPage, isDisabled, numOfPages, currentPage, name = btnPage, className = '') {
+    generateButton = (btnPage, isDisabled, numOfPages, currentPage, name = btnPage, className = '') => {
         if (btnPage >= 1 && btnPage <= numOfPages) {
             return (
                 <button className={`button ${className}`}
                     disabled={isDisabled}
                     key={name}
-                    onClick={() => this.nextPage(btnPage)}>
+                    onClick={() => this.props.history.push(`/gridView/${btnPage}`)}>
                     {name}
                 </button>
             )
@@ -29,9 +28,8 @@ class Pagination extends React.Component {
 
 
     render() {
-        const { numOfPages, ui: { currentPage } } = this.props
+        const { numOfPages, page: currentPage } = this.props;
         const dots = <span className="pagination-ellipsis">&hellip;</span>;
-
 
         return (
             <div className='buttons pagination'>
@@ -61,8 +59,7 @@ Pagination.defaultProps = {
 };
 
 Pagination.propTypes = {
-    ui: PropTypes.object.isRequired,
-    setCurrentPage: PropTypes.func
+    ui: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -70,7 +67,6 @@ const mapStateToProps = state => ({
     numOfPages: state.data.numOfPages
 })
 const mapActionsToProps = {
-    setCurrentPage,
     fetchPopularMovies
 }
 

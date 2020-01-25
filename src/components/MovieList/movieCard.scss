@@ -47,22 +47,26 @@
 
 
 @media only screen and (max-width: 1215px) {
-    .movie-card__overlay {
-        height: 98.3%;
-    }
+    .movie-card {
+        &__overlay {
+            height: 98.3%;
 
-    .movie-card__overlay__title{
-        padding: 36px 10px 20px 10px;
-        font-size: 130%;
-    }
-    .movie-card__overlay__year{
-        left: 100px;
-        font-size: 130%;
-    }
-    .movie-card__overlay__popularity{
-        top: 290px;
-        left:74px;
-        font-size: 120%;
+            &__title {
+                padding: 36px 10px 20px 10px;
+                font-size: 130%;
+            }
+
+            &__year {
+                left: 100px;
+                font-size: 130%;
+            }
+
+            &__popularity {
+                top: 290px;
+                left:74px;
+                font-size: 120%;
+            }
+        }
     }
   }
 

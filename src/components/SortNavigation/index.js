@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { fetchPopularMovies } from '../../redux/actions/movies';
-import { setCurrentPage, setFilters } from '../../redux/actions/ui'
+import { setFilters } from '../../redux/actions/ui'
 
 import { IoMdStar } from 'react-icons/io';
 import { MdDateRange } from 'react-icons/md';
@@ -26,7 +26,7 @@ class SortNavigation extends React.Component {
         if (this.props.filterBy !== filter) {
             this.props.setFilters(filter)
             this.filterMoviesBy(filter)
-            this.props.setCurrentPage(1)
+            this.props.history.push(`/${this.state.viewType}/1`);
         }
     }
     filterMoviesBy(filter) {
@@ -57,7 +57,6 @@ SortNavigation.propTypes = {
 
 const mapActionsToProps = {
     fetchPopularMovies,
-    setCurrentPage,
     setFilters
 }
 const mapStateToProps = state => ({

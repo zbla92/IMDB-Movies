@@ -6,8 +6,7 @@ import Pagination from '../Pagination';
 
 class GridView extends React.Component {
     state = {
-        insertRowEvery: 5,
-        currentPage: 1
+        insertRowEvery: 5
     }
     componentWillUnmount() {
         this.props.clearErrors()
@@ -32,7 +31,7 @@ class GridView extends React.Component {
                 <div className='grid-view__container container'>
                     {this.renderMovies(this.props.movies)}
                 </div>
-                {this.props.numOfPages > 1 ? <Pagination
+                {this.props.numOfPages > 1 ? <Pagination page={this.props.page}
                 /> : null}
             </div>
         )

@@ -1,9 +1,8 @@
-import { LOADING_UI, STOP_LOADING_UI, SET_ERRORS, CLEAR_ERRORS, CHANGE_PAGE, FILTER_BY } from '../actions/types';
+import { LOADING_UI, STOP_LOADING_UI, SET_ERRORS, CLEAR_ERRORS, FILTER_BY } from '../actions/types';
 
 const initialState = {
     errors: false,
-    loading: false,
-    currentPage: 1,
+    loading: false
 }
 
 export default (state = initialState, action) => {
@@ -29,11 +28,6 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 errors: false
-            }
-        case CHANGE_PAGE:
-            return {
-                ...state,
-                currentPage: parseInt(action.payload)
             }
         case FILTER_BY:
             return {
