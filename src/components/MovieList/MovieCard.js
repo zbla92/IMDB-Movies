@@ -2,7 +2,7 @@ import './movieCard.scss'
 import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from 'react-icons/io'
 import React, { Component } from 'react'
 
-import noImg from '../../images/sorry_no_img.png'
+import noImg from '../../images/photo_not_available.png'
 
 class MovieCard extends Component {
     // Method to reduce the date since it comes in as year-mm-dd

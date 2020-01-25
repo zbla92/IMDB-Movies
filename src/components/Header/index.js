@@ -16,9 +16,6 @@ class Header extends React.Component {
     state = {
         keyword: '',
     }
-    componentDidMount() {
-        // this.handleNavBurger()
-    }
 
     handleChange = e => {
         this.setState({ keyword: e.target.value })
@@ -36,11 +33,11 @@ class Header extends React.Component {
     }
 
     handleOpen = () => {
-        if (window.screen.width < 1024) {
+        if (window.innerWidth < 1024) {
             var burger = document.querySelector('.burger')
             var nav = document.querySelector('#navMenu')
             burger.classList.toggle('is-active')
-            nav.classList.toggle('is-active')
+            nav.classList.toggle('navbar__menu--is-active')
         }
     }
 

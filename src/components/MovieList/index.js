@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom'
 
 import GridView from './GridView';
 import TableView from './TableView';
-import Skeleton from '../../utils/GridSkeleton'
+import Skeleton from '../Skeleton/GridSkeleton'
 
 
 
@@ -17,9 +17,6 @@ class MovieList extends React.Component {
         if (this.props.movies.length < 1) {
             this.props.fetchPopularMovies(this.props.page, this.props.filter);
         }
-        // componentDidMount() {
-        // this.props.setCurrentPage(this.props.match.params.page || 1)
-        // }
     }
 
     render() {

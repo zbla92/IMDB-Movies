@@ -42,8 +42,8 @@ class TableView extends React.Component {
                 <table className='table is-hoverable table-view__table table is-fullwidth'>
                     <thead>
                         <tr>
-                            <th className='table-view__table__title has-text-left' > <a onClick={() => this.sortMoviesAlphabetically(this.props.movies)}>Title</a></th>
-                            <th className='table-view__table__year has-text-right'><a onClick={() => this.sortMoviesByYear(this.props.movies)}>Year</a></th>
+                            <th className='table-view__title has-text-left' > <span className='table-view__span' onClick={() => this.sortMoviesAlphabetically(this.props.movies)}>Title<span className="view-table__tooltiptext">Sort by name</span></span></th>
+                            <th className='table-view__year has-text-right'><span className='table-view__span' onClick={() => this.sortMoviesByYear(this.props.movies)}>Year<span className="view-table__tooltiptext">Sort by year</span></span></th>
                         </tr>
                     </thead>
                     <tbody>

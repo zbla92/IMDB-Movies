@@ -3,12 +3,17 @@
 .grid-view,
 .table-view{
 margin-top: 70px;
+transition: opacity 1s;
+    opacity: 1;
 }
+
+
 
 .grid-view__container{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     grid-gap: 1rem;
+    
 }
 // TABLE VIEW
 
@@ -16,7 +21,32 @@ margin-top: 70px;
     width: 900px;
 }
 
+.table-view__span{
+    color: $secondaryFaded;
+    font-size: 130%;
+    &:hover{
+        cursor: pointer;
+        color: $primaryColor;
+        .view-table__tooltiptext{
+            visibility: visible;
+        }
+    }
+}
 
+.view-table__tooltiptext{
+    visibility: hidden;
+    width: 80px;
+    background-color: rgba(0, 0, 0, 0.479);
+    color: white;
+    font-size: 50%;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
 
 @media only screen and  (min-width: 1025px)and (max-width: 1215px) {
     .grid-view__container{
@@ -38,15 +68,9 @@ margin-top: 70px;
         grid-gap: 0.5rem;
     } 
 }
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 600px) {
     .grid-view__container{
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        grid-gap: 0.1rem;
-    } 
-}
-@media only screen and (max-width: 440px) {
-    .grid-view__container{
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         grid-gap: 0.1rem;
     } 
 }

@@ -12,42 +12,46 @@ class Pagination extends React.Component {
     nextPage(page) {
         this.props.setCurrentPage(page)
         this.props.fetchPopularMovies(page, this.props.ui.filterBy)
-        this.nextPageMoble()
     }
-    nextPageMoble() {
-        if (window.screen.width <= 550) {
-            window.scrollTo(0, 0)
-        }
+
+    generateButton(btnPage, isDisabled, numOfPages, currentPage, name = btnPage, className = '') {
+
+        if (btnPage >= 1 && btnPage <= numOfPages) {
+            return (
+                <button className={`button ${className}`}
+                    disabled={isDisabled}
+                    key={name}
+                    onClick={() => this.nextPage(btnPage)}>
+                    {name}
+                </button>
+            )
+        } else return null
     }
+
 
     render() {
         const { numOfPages, ui: { currentPage } } = this.props
-        const pageLinks = []
-        let prevBtnDisabled = true;
-        let nextBtnDisabled = false;
+        const dots = <span className="pagination-ellipsis">&hellip;</span>;
 
-        if (currentPage > 1) {
-            pageLinks.push(<button className='button is-dark' key={currentPage - 1} onClick={() => this.nextPage(currentPage - 1)}>{currentPage - 1}</button>)
-        }
-        pageLinks.push(<button className='button is-primary ' disabled key={currentPage}>{currentPage}</button>)
-        pageLinks.push(<button className='button is-dark' key={currentPage + 1} onClick={() => this.nextPage(currentPage + 1)}>{currentPage + 1}</button>)
-
-        // Check if previous btn should be disabled or enabled
-        if (currentPage <= 1) {
-            prevBtnDisabled = true;
-        } else prevBtnDisabled = false;
-        // Check if next btn should be disabled or enabled
-        if (currentPage >= numOfPages) {
-            nextBtnDisabled = false;
-        } else nextBtnDisabled = false;
 
         return (
             <div className='buttons pagination'>
-                {currentPage > 10 ? <button className='button is-dark' key={currentPage - 10} onClick={() => this.nextPage(currentPage - 10)}>{currentPage - 10}</button> : null}
-                {<button className={`button is-dark `} disabled={prevBtnDisabled} key={currentPage - 1} onClick={() => this.nextPage(currentPage - 1)}>Prev</button>}
-                {pageLinks}
-                {currentPage >= numOfPages && !nextBtnDisabled ? null : <button className={`button is-dark`} key={currentPage} onClick={() => this.nextPage(currentPage + 1)}>Next</button>}
-                {numOfPages - currentPage > 10 ? <button className='button is-dark' key={currentPage + 10} onClick={() => this.nextPage(currentPage + 10)}>{currentPage + 10}</button> : null}
+                {/** PREV PAGE -- far right */}
+                {this.generateButton(currentPage - 1, false, numOfPages, currentPage, 'Prev', 'pagination__prev')}
+                {/*Button that appears to be -10 pages from current page*/}
+                {this.generateButton(currentPage > 2 ? 1 : null, false, numOfPages, currentPage)}
+                {currentPage > 2 ? dots : null}
+                {/*Button that appears to be -1 pages from current page*/}
+                {this.generateButton(currentPage - 1, false, numOfPages, currentPage)}
+                {/** Current page */}
+                {this.generateButton(currentPage, true, numOfPages, currentPage, currentPage, 'is-primary')}
+                {/* Next Page*/}
+                {this.generateButton(currentPage + 1, false, numOfPages, currentPage)}
+                {/** +10 pages */}
+                {currentPage < numOfPages ? dots : null}
+                {this.generateButton(currentPage < numOfPages ? numOfPages : null, false, numOfPages, currentPage)}
+                {/** NEXT PAGE - far left */}
+                {this.generateButton(currentPage + 1, false, numOfPages, currentPage, 'Next', 'pagination__next')}
             </div>
         )
 

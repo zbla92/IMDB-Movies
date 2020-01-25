@@ -2,9 +2,9 @@ import { FETCH_POPULAR_MOVIES, FETCH_MOVIES_BY_KEYWORD, LOADING_UI, STOP_LOADING
 import moviesApi from '../../apis/movies-api'
 
 const fetchPopularMovies = (page, filter) => async dispatch => {
+    dispatch({ type: LOADING_UI })
     try {
         const movies = await moviesApi.fetchPopularMovies(page, filter);
-        dispatch({ type: LOADING_UI })
         dispatch({
             type: FETCH_POPULAR_MOVIES,
             payload: movies
@@ -17,10 +17,9 @@ const fetchPopularMovies = (page, filter) => async dispatch => {
 }
 
 const fetchMoviesByKeyword = (query) => async dispatch => {
+    dispatch({ type: LOADING_UI })
     try {
         const movies = await moviesApi.fetchMoviesByKeyword(query);
-        console.log(query)
-        dispatch({ type: LOADING_UI })
         dispatch({
             type: FETCH_MOVIES_BY_KEYWORD,
             payload: movies

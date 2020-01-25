@@ -11,12 +11,14 @@ const fetchPopularMovies = async (page = 1, filter = 'popular') => {
                 page,
             }
         });
+        scrollUp()
         return {
             data: data.results,
             numOfPages: data.total_pages
         };
+
     } catch (err) {
-        console.log(err, ' please wait')
+        alert(err, ' please reload the page')
     }
 };
 
@@ -28,11 +30,12 @@ const fetchMoviesByKeyword = async (query) => {
                 query: query
             }
         });
+        scrollUp()
         return {
             data: data.results
         };
     } catch (err) {
-        console.log(`DANG ${err}`)
+        alert(err, ' please reload the page')
     }
 };
 
@@ -42,6 +45,10 @@ const adjustUrlForFilters = (filter) => {
         return `${filter}/movie/day`
     }
     return `movie/${filter}`
+}
+
+const scrollUp = () => {
+    window.scrollTo(0, 0)
 }
 
 export default {

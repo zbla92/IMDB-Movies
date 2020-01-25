@@ -7,13 +7,14 @@
     height: 60px;
 }
 .navbar,
-.navbar-menu.is-active{
+.navbar__menu--is-active{
     background: rgba(0,0,0,0.8);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
 }
-.navbar-menu.is-active{
-        position: relative;
+.navbar__menu--is-active{
+    position: relative;
+    display: block;
     top: 7px;
     width: 102%;
     right: 1px;
