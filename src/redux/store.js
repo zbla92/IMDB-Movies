@@ -17,7 +17,11 @@ const reducers = combineReducers({
     data: movieReducer
 })
 
-const store = createStore(reducers, initialState, compose(applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+// const store = createStore(reducers, initialState, compose(applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
 // const store = createStore(reducers, initialState, applyMiddleware(...middleware))
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, initialState, composeEnhancers(applyMiddleware(...middleware)))
+
 
 export default store
