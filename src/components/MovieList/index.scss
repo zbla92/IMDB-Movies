@@ -6,7 +6,14 @@ margin-top: 70px;
 transition: opacity 1s;
     opacity: 1;
 }
+.table-view{
+    overflow: hidden;
+}
 
+.table-view__table{
+    margin: 0 auto;
+    width: 90%;
+}
 
 
 .grid-view__container{
@@ -17,9 +24,6 @@ transition: opacity 1s;
 }
 // TABLE VIEW
 
-.table-view{
-    width: 900px;
-}
 
 .table-view__span{
     color: $secondaryFaded;
@@ -55,9 +59,6 @@ transition: opacity 1s;
     } 
 }
 @media only screen and (max-width: 1024px){
-    .table-view{
-        width: 90%;
-    }
     .grid-view{
         width: 90%;
         margin: 0 auto;
