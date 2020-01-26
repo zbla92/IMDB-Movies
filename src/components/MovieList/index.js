@@ -53,7 +53,10 @@ class MovieList extends React.Component {
 
 MovieList.propTypes = {
     movies: PropTypes.array.isRequired,
-    ui: PropTypes.object
+    ui: PropTypes.object,
+    numOfPages: PropTypes.number,
+    clearErrors: PropTypes.func,
+    page: PropTypes.number.isRequired
 };
 
 MovieList.defaultProps = {

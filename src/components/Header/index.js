@@ -24,6 +24,7 @@ class Header extends React.Component {
         this.props.fetchMoviesByKeyword(this.state.keyword)
             .catch(ex => {
                 alert('Something failed');
+                this.props.setFilters('popular')
             });
         this.setState({ keyword: '' })
         this.props.setFilters('search')
@@ -90,6 +91,7 @@ class Header extends React.Component {
 Header.propTypes = {
     setFilters: PropTypes.func.isRequired,
     fetchMoviesByKeyword: PropTypes.func.isRequired,
+    location: PropTypes.object.isRequired
 }
 
 const mapActionsToProps = {

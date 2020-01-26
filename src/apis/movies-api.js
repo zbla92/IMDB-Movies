@@ -11,7 +11,6 @@ const fetchMoviesByFilter = async (page = 1, filter = 'popular') => {
                 page,
             }
         });
-        scrollUp()
         return {
             data: data.results,
             numOfPages: data.total_pages
@@ -29,9 +28,9 @@ const fetchMoviesByKeyword = async (query) => {
                 query: query
             }
         });
-        scrollUp()
         return {
-            data: data.results
+            data: data.results,
+            query: query
         };
     } catch (err) {
         throw new Error(err[0]);
@@ -44,10 +43,6 @@ const adjustUrlForFilters = (filter) => {
         return `${filter}/movie/day`
     }
     return `movie/${filter}`
-}
-
-const scrollUp = () => {
-    window.scrollTo(0, 0)
 }
 
 export default {

@@ -1,5 +1,6 @@
 import '../index.scss';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import MovieCard from '../../MovieCard/MovieCard';
 import Pagination from '../../Pagination';
@@ -39,6 +40,14 @@ class GridView extends React.Component {
         )
     }
 };
+
+GridView.propTypes = {
+    movies: PropTypes.array.isRequired,
+    clearErrors: PropTypes.func.isRequired,
+    numOfPages: PropTypes.number.isRequired,
+    page: PropTypes.number
+}
+
 
 export default GridView;
 

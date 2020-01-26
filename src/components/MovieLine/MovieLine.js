@@ -1,5 +1,6 @@
 import './movieLine.scss'
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class MovieLine extends React.Component {
     dateToYear(date) {
@@ -16,6 +17,11 @@ class MovieLine extends React.Component {
 
         )
     }
+}
+
+MovieLine.propTypes = {
+    title: PropTypes.string,
+    year: PropTypes.string
 }
 
 export default MovieLine;

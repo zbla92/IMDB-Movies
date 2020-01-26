@@ -16,12 +16,14 @@ export default (state = initialState, action) => {
                 numOfPages: action.payload.numOfPages
             }
         case FETCH_MOVIES_BY_KEYWORD:
-            if (action.payload.data.length > 3) {
+            if (action.payload.data.length > 1) {
                 return {
                     ...state,
                     movies: action.payload.data,
                     numOfPages: action.payload.numOfPages
                 }
-            } else return { ...state }
+            } else {
+                return { ...state }
+            }
     }
 }
