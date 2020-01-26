@@ -1,25 +1,38 @@
 import './index.scss';
 import React from 'react';
 
+import reactIco from '../../images/react.png';
+import reduxIco from '../../images/redux.png';
+import bulmaIco from '../../images/bulma.png';
+import netflix from '../../images/netflix.png';
+import hboIco from '../../images/HBO.png';
+import popcornTime from '../../images/popcorntime.png';
+
+
+
 function Footer() {
     return (
         <div className="footer">
             <div className="footer__container">
                 <div className="footer__links footer__links--left">
-                    <a href='http://netflix.com' className='footer__icon footer__icon--netflix'>Netflix</a>
-                    <a href='http://hbo.com' className='footer__icon footer__icon--hbo'>HBO</a>
-                    <a href='https://popcorntime-online.ch/' className='footer__icon footer__icon--popcorn'>Popcorn Time</a>
-                    <a href='https://chateaudepommard.com' className='footer__icon footer__icon--chateau'>Chateau De Pommard</a>
+                    <div className="footer__dependencies">
+                        <a href='https://reactjs.org/' target='_blank' rel="noopener noreferrer" className='footer__icon footer__icon--netflix'><img src={reactIco} alt='icon' width='15px' /> React</a>
+                        <a href='https://redux.js.org/' target='_blank' rel="noopener noreferrer" className='footer__icon footer__icon--hbo'><img src={reduxIco} width='15px' alt='icon' /> Redux</a>
+                        <a href='https://bulma.io/' target='_blank' rel="noopener noreferrer" className='footer__icon footer__icon--popcorn'><img src={bulmaIco} width='11px' alt='icon' /> Bulma</a>
+                    </div>
                 </div>
-                <div className="footer__dependencies footer__links--right">
-                    <a href='http://netflix.com' className='footer__icon footer__icon--netflix'>React</a>
-                    <a href='http://hbo.com' className='footer__icon footer__icon--hbo'>Redux</a>
-                    <a href='https://popcorntime-online.ch/' className='footer__icon footer__icon--popcorn'>Popcorn Time</a>
-                    <a href='https://chateaudepommard.com' className='footer__icon footer__icon--chateau'>Chateau De Pommard</a>
+                <div className="footer__links--right">
+                    <div className="footer__dependencies">
+                        <a href='http://netflix.com' target='_blank' rel="noopener noreferrer" className='footer__icon footer__icon--netflix'><img src={netflix} width='15px' alt='icon' /> Netflix</a>
+                        <a href='http://hbo.com' target='_blank' rel="noopener noreferrer" className='footer__icon footer__icon--hbo'><img src={hboIco} width='30px' alt='icon' /> TV</a>
+                        <a href='https://popcorntime-online.ch/' target='_blank' rel="noopener noreferrer" className='footer__icon footer__icon--popcorn'><img src={popcornTime} width='13px' alt='icon' /> &nbsp;Popcorn Time</a>
+                    </div>
                 </div>
             </div>
             <div className='footer__sentance'>
-                This application was built for skill presentaton purpose only. Feel free to checkout m github account <a href='http://github.com/zbla92'>here</a>
+                <span className='footer__sentance__span' >
+                    This application was built for skill presentaton purpose only. Feel free to check out my github account <a href='http://github.com/zbla92'>here</a>
+                </span>
             </div>
         </div>
     )

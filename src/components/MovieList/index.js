@@ -6,8 +6,8 @@ import { fetchMoviesByFilter } from '../../redux/actions/movies';
 import { clearErrors } from '../../redux/actions/ui';
 import { withRouter } from 'react-router-dom'
 
-import GridView from './GridView';
-import TableView from './TableView';
+import GridView from './GridView/GridView';
+import TableView from './TableView/TableView';
 import GridSkeleton from '../../utils/Skeleton/GridSkeleton';
 import TableSkeleton from '../../utils/Skeleton/TableSkeleton';
 
@@ -36,7 +36,6 @@ class MovieList extends React.Component {
         const { movies, numOfPages, clearErrors, page } = this.props;
         const { errors } = this.props.ui;
         if (this.props.ui.loading) {
-            console.log(this.props.location.pathname.indexOf('gridView') > -1)
             return (
                 <div>
                     {this.props.location.pathname.indexOf('gridView') > -1 ? <GridSkeleton /> : <TableSkeleton />}

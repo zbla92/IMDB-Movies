@@ -6,22 +6,32 @@
     height: 250px;
     background-color:$primaryColor ;
     &__container{
-        display: flex;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-    &__links{
-        text-align: ceter;
+        display: inline-flex;   
     }
     &__links--left{
-        padding-left: 5vw;
+        display: flex;
+        flex-direction: column;
+        min-width: 50vw;
+        align-items: center;
+        justify-content: center;
     }
     &__links--right{
-        margin-left: auto;
-        padding-right: 5vw;
+        min-width: 50vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__dependencies{
+        display: flex;
+        flex-direction: column;
     }
     &__sentance{
-        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        height: 100px;
         text-align: center;
+        &__span{
+            margin-top: auto;
+        }
     }
 }

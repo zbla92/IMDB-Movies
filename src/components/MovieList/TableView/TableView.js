@@ -1,8 +1,8 @@
-import './index.scss'
+import '../index.scss'
 import React from 'react';
 
-import MovieLine from './MovieLine';
-import Pagination from '../Pagination';
+import MovieLine from '../../MovieLine/MovieLine';
+import Pagination from '../../Pagination';
 
 class TableView extends React.Component {
     state = {

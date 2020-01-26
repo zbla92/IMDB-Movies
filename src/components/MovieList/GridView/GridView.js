@@ -1,8 +1,8 @@
-import './index.scss';
+import '../index.scss';
 import React from 'react';
 
-import MovieCard from './MovieCard';
-import Pagination from '../Pagination';
+import MovieCard from '../../MovieCard/MovieCard';
+import Pagination from '../../Pagination';
 
 class GridView extends React.Component {
     state = {

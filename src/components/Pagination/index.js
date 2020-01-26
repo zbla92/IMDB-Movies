@@ -21,7 +21,7 @@ class Pagination extends React.Component {
         //name = rendered name for the button, usually number, next || prev
         // className =  passing additional styling to particular button
         const viewType = this.props.location.pathname.split('View')[0] + 'View';
-        if (btnPage >= 1 && btnPage <= numOfPages) {
+        if ((btnPage >= 1 && btnPage <= numOfPages) || name === 'Prev' || name === 'Next') {
             return (
                 <button className={`button pagination__button ${className}`}
                     disabled={isDisabled}
@@ -40,21 +40,21 @@ class Pagination extends React.Component {
         return (
             <div className='buttons pagination'>
                 {/** PREV PAGE -- far right */}
-                {this.generateButton(currentPage - 1, false, numOfPages, 'Prev', 'pagination__button__next')}
+                {this.generateButton(currentPage - 1, currentPage > 1 ? false : true, numOfPages, 'Prev', 'pagination__button__next')}
                 {/*Button that appears to be -10 pages from current page*/}
                 {this.generateButton(currentPage > 2 ? 1 : null, false, numOfPages)}
                 {currentPage > 2 ? dots : null}
                 {/*Button that appears to be -1 pages from current page*/}
                 {this.generateButton(window.innerWidth < 600 ? null : currentPage - 1, false, numOfPages)}
                 {/** Current page */}
-                {this.generateButton(currentPage, true, numOfPages, currentPage, 'is-primary')}
+                {this.generateButton(currentPage, true, numOfPages, currentPage, 'pagination__button--is-active')}
                 {/* Next Page*/}
                 {this.generateButton(window.innerWidth < 600 ? null : currentPage + 1, false, numOfPages)}
                 {/** +10 pages */}
                 {currentPage < numOfPages - 1 ? dots : null}
                 {this.generateButton(currentPage < numOfPages - 1 ? numOfPages : null, false, numOfPages)}
                 {/** NEXT PAGE - far left */}
-                {this.generateButton(currentPage + 1, false, numOfPages, 'Next', 'pagination__button__prev')}
+                {this.generateButton(currentPage + 1, currentPage < numOfPages ? false : true, numOfPages, 'Next', 'pagination__button__prev')}
             </div>
         )
 

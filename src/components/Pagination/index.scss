@@ -19,6 +19,11 @@
             right: 350px;
         }
     }
+    &__button--is-active[disabled]{
+        background-color: $secondaryColor;
+        border-color: transparent;
+        box-shadow: none;
+    }
 }
 @media only screen and (max-width: 1407px) {
     .pagination{
