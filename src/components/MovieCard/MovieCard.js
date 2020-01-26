@@ -1,6 +1,7 @@
 import './movieCard.scss'
 import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from 'react-icons/io'
 import React, { Component } from 'react'
+import propTypes from 'prop-types';
 
 import noImg from '../../images/photo_not_available.png'
 
@@ -8,7 +9,7 @@ import MovieCardLoader from '../../utils/MovieCardLoader/MovieCardLoader'
 
 class MovieCard extends Component {
     // Method to reduce the date since it comes in as year-mm-dd
-    dateToYear(date) {
+    dateToYear(date = '1999-12-12') {
         return date ? date.slice(0, -6) : 2000
     }
     // Method that returns number of stars based on popularity of the movie
@@ -24,6 +25,7 @@ class MovieCard extends Component {
         }
         return stars
     }
+    // If no img return local noImage image
     checkImg(url) {
         if (url.length < 60) return noImg
         else return url
@@ -35,15 +37,18 @@ class MovieCard extends Component {
 
         return (
             <div className="movie-card">
+                {/**MovieCardLoader is component that is passing loading spinner until img source is fetched and img is ready to be displayed */}
                 <MovieCardLoader src={this.checkImg(imageUrl)} title={title} year={this.dateToYear(year)} stars={this.popularityStars(vote_average)} />
-                {/* <div className="movie-card__overlay">
-                    <h1 className='movie-card__overlay__title'>{title}</h1>
-                    <span className="movie-card__overlay__year">{this.dateToYear(year)}</span>
-                    <span className='movie-card__overlay__popularity'>{this.popularityStars(vote_average)}</span>
-                </div> */}
             </div >
         )
     }
+}
+
+MovieCard.propTypes = {
+    imageUrl: propTypes.string,
+    tite: propTypes.string,
+    year: propTypes.string,
+    vote_average: propTypes.number
 }
 
 export default MovieCard;

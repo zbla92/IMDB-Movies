@@ -1,4 +1,4 @@
-import { FETCH_POPULAR_MOVIES, FETCH_MOVIES_BY_KEYWORD, LOADING_UI, STOP_LOADING_UI, SET_ERRORS } from './types';
+import { FETCH_POPULAR_MOVIES, FETCH_MOVIES_BY_KEYWORD, LOADING_UI, STOP_LOADING_UI, SET_ERRORS, KEYWORD } from './types';
 import moviesApi from '../../apis/movies-api'
 
 const fetchMoviesByFilter = (page, filter) => async dispatch => {
@@ -18,6 +18,10 @@ const fetchMoviesByFilter = (page, filter) => async dispatch => {
 
 const fetchMoviesByKeyword = (query) => async dispatch => {
     dispatch({ type: LOADING_UI })
+    dispatch({
+        type: KEYWORD,
+        payload: query
+    })
     try {
         const movies = await moviesApi.fetchMoviesByKeyword(query);
         dispatch({

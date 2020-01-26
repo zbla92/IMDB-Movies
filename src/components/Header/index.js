@@ -41,8 +41,6 @@ class Header extends React.Component {
             var nav = document.querySelector('#navMenu')
             burger.classList.toggle('is-active')
             nav.classList.toggle('navbar__menu--is-active')
-        } else {
-            window.scrollTo(0, 0)
         }
     }
 
@@ -65,11 +63,21 @@ class Header extends React.Component {
                     </div>
                     <div id='navMenu' className='navbar-menu'>
                         <form onSubmit={this.onSubmit} className='navbar__form'>
-                            <input className="input is-rounded navbar__form__search is-vcentered" type="text" value={this.state.keyword} placeholder="Search Vivant Movie Database" onChange={this.handleChange}></input>
+                            <input className="input is-rounded navbar__form__search is-vcentered"
+                                type="text" value={this.state.keyword}
+                                placeholder="Search Vivant Movie Database"
+                                onChange={this.handleChange}>
+                            </input>
                         </form>
                         <div className='navbar__view navbar-end'>
-                            <Link to={`/gridView/${page}`} ><IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} onClick={(e) => this.handleOpen()} /></Link>
-                            <Link to={`/tableView/${page}`} ><IoIosList className={pathname.indexOf('tableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'} onClick={(e) => this.handleOpen()} /></Link>
+                            <Link to={`/gridView/${page}`} >
+                                <IoMdGrid className={pathname.indexOf('gridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'}
+                                    onClick={(e) => { this.handleOpen(); window.scrollTo(0, 0) }} />
+                            </Link>
+                            <Link to={`/tableView/${page}`} >
+                                <IoIosList className={pathname.indexOf('tableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active'}
+                                    onClick={(e) => { this.handleOpen(); window.scrollTo(0, 0) }} />
+                            </Link>
                         </div>
 
                     </div>

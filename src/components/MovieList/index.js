@@ -26,7 +26,7 @@ class MovieList extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.page !== prevProps.page) {
             this.props.fetchMoviesByFilter(this.props.page, this.props.ui.filterBy)
-                .catch(ex => {
+                .catch(err => {
                     this.props.history.push('/');
                 });
         }

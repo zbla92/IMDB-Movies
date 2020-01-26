@@ -9,10 +9,6 @@ import { fetchMoviesByFilter } from '../../redux/actions/movies';
 
 class Pagination extends React.Component {
 
-    nextPage(page) {
-        this.props.fetchMoviesByFilter(page, this.props.ui.filterBy)
-    }
-
     generateButton = (btnPage, isDisabled, numOfPages, name = btnPage, className = '') => {
         // This function is used to generate pagination button. 
         //btnPage = expression that resolves buttons number (page number)

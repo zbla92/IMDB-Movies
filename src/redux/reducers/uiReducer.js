@@ -1,8 +1,9 @@
-import { LOADING_UI, STOP_LOADING_UI, SET_ERRORS, CLEAR_ERRORS, FILTER_BY } from '../actions/types';
+import { LOADING_UI, STOP_LOADING_UI, SET_ERRORS, CLEAR_ERRORS, FILTER_BY, KEYWORD } from '../actions/types';
 
 const initialState = {
     errors: false,
-    loading: false
+    loading: false,
+    keyword: ''
 }
 
 export default (state = initialState, action) => {
@@ -33,6 +34,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 filterBy: action.payload
+            }
+        case KEYWORD:
+            return {
+                ...state,
+                keyword: action.payload
             }
     }
 }
