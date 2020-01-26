@@ -7,6 +7,7 @@ import bulmaIco from '../../images/bulma.png';
 import netflix from '../../images/netflix.png';
 import hboIco from '../../images/HBO.png';
 import popcornTime from '../../images/popcorntime.png';
+import heroku from '../../images/heroku.png';
 
 
 
@@ -26,6 +27,7 @@ function Footer() {
                         <a href='http://netflix.com' target='_blank' rel="noopener noreferrer" className='footer__icon footer__icon--netflix'><img src={netflix} width='15px' alt='icon' /> Netflix</a>
                         <a href='http://hbo.com' target='_blank' rel="noopener noreferrer" className='footer__icon footer__icon--hbo'><img src={hboIco} width='30px' alt='icon' /> TV</a>
                         <a href='https://popcorntime-online.ch/' target='_blank' rel="noopener noreferrer" className='footer__icon footer__icon--popcorn'><img src={popcornTime} width='13px' alt='icon' /> &nbsp;Popcorn Time</a>
+                        <a href='https://heroku.com' target='_blank' rel="noopener noreferrer" className='footer__icon footer__icon--popcorn'><img src={heroku} width='14px' alt='icon' /> Heroku</a>
                     </div>
                 </div>
             </div>
