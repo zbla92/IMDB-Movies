@@ -3,14 +3,26 @@ import React, { Fragment } from 'react';
 
 
 class MovieCardLoader extends React.Component {
-    state = { isLoaded: false }
+    // used for unsubscribing async request
+    _isMounted = false;
+    state = {
+        isLoaded: false
+    }
 
     componentDidMount() {
+        this._isMounted = true;
         const image = new Image();
-        image.onload = () => this.setState({ isLoaded: true });
+        image.onload = () => {
+            if (this._isMounted) {
+                this.setState({ isLoaded: true })
+            }
+        };
         image.src = this.props.src;
     }
 
+    componentWillUnmount() {
+        this._isMounted = false
+    }
     render() {
         const { src, title, year, stars } = this.props;
         const { isLoaded } = this.state;
