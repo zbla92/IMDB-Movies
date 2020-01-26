@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 
-import MovieList from '../MovieList';
-import SortNavigation from '../SortNavigation';
+import MovieList from '../../components/MovieList';
+import SortNavigation from '../../components/SortNavigation';
 
 class GridView extends Component {
     render() {

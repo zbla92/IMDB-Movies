@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { fetchPopularMovies } from '../../redux/actions/movies';
+import { fetchMoviesByFilter } from '../../redux/actions/movies';
 import { setFilters } from '../../redux/actions/ui'
 
 import { IoMdStar } from 'react-icons/io';
@@ -30,13 +30,13 @@ class SortNavigation extends React.Component {
         }
     }
     filterMoviesBy(filter) {
-        this.props.fetchPopularMovies(1, filter)
+        this.props.fetchMoviesByFilter(1, filter)
     }
 
     render() {
         return (
-            <div className='container sort-navigation'>
-                <div className='columns'>
+            <div className='sort-'>
+                <div className='sort-navigation'>
                     <div className={`column sort-navigation__btn ${this.props.filterBy === 'top_rated' ? 'sort-navigation__btn__active' : ''}`} onClick={() => { this.sortBy('top_rated') }}><IoMdStar /> <span>Rating</span></div>
                     <div className={`column sort-navigation__btn ${this.props.filterBy === 'popular' ? 'sort-navigation__btn__active' : ''}`} onClick={() => { this.sortBy('popular') }} > <AiOutlineFire /> <span>Popularity</span></div>
                     <div className={`column sort-navigation__btn ${this.props.filterBy === 'trending' ? 'sort-navigation__btn__active' : ''}`} onClick={() => { this.sortBy('trending') }} > <MdDateRange /> <span>Trending</span></div>
@@ -51,12 +51,12 @@ SortNavigation.defaultProps = {
 }
 
 SortNavigation.propTypes = {
-    fetchPopularMovies: PropTypes.func.isRequired,
+    fetchMoviesByFilter: PropTypes.func.isRequired,
     filterBy: PropTypes.string.isRequired
 }
 
 const mapActionsToProps = {
-    fetchPopularMovies,
+    fetchMoviesByFilter,
     setFilters
 }
 const mapStateToProps = state => ({

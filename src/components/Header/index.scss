@@ -5,71 +5,61 @@
     width: 100%;
     top: 0px;
     height: 60px;
-}
-.navbar,
-.navbar__menu--is-active{
-    background: rgba(0,0,0,0.8);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-}
-.navbar__menu--is-active{
-    position: relative;
-    display: block;
-    top: 7px;
-    width: 102%;
-    right: 1px;
-    .navbar__view{
-        font-size: 400%;
-        text-align: center;
-        a{
-            display: inline-block;
-            margin: 0 auto;
-            padding: 30px;
+    background: $primaryColor;
+    -webkit-backdrop-filter: $backdropFilter;
+    backdrop-filter: $backdropFilter;
+    &__menu--is-active{
+        position: relative;
+        display: block;
+        top: 8px;
+        width: 102%;
+        right: 1px;
+        background: $primaryColor;
+        .navbar__view{
+            font-size: 400%;
+            text-align: center;
+            a{
+                display: inline-block;
+                margin: 0 auto;
+                padding: 30px;
+            }
         }
     }
-}
-
-.navbar-brand__image {
-    position: relative;
-    top: 6px;
-    height: 46px;
-}
-.navbar__form{
-    width: 100%;
-    text-align: center;
-}
-.navbar__form__search {
-    display: inline-block;
-    margin: 0 auto;
-    // position: relative;
-    top: 3px;
-    width: 76%;
-    height: 32px;
-    margin-top: 10px;
-    background-color: #333333;
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.253);
-    color: rgb(219, 219, 219);
-    text-align: center;
-}
-.navbar__form__search::placeholder{
-    color: rgba(255, 255, 255, 0.192);
-    
-}
-
-
-.navbar__view{
-    position: relative;
-    top: 5px;
-    font-size: 250%;
-    height: 100%;
-
-}
-
-.navbar__view__active{
-    color: $secondaryColor;
-}
-.navbar__view__non-active{
-    color: rgba(255, 255, 255, 0.336);
+    &-brand__image {
+        position: relative;
+        top: 6px;
+        height: 46px;
+    }
+    &__form{
+        width: 100%;
+        text-align: center;
+        &__search {
+            display: inline-block;
+            margin: 0 auto;
+            top: 3px;
+            width: 76%;
+            height: 32px;
+            margin-top: 10px;
+            background-color: #313131;;
+            border: 1px solid rgba(255, 255, 255, 0.253);
+            color: $fontWhite;
+            text-align: center;
+            &::placeholder{
+                color: rgba(255, 255, 255, 0.192);
+            }
+            
+        }
+    }
+    &__view{
+        position: relative;
+        top: 5px;
+        font-size: 250%;
+        height: 100%;
+        &__active{
+            color: $secondaryColor;
+        }
+        &__non-active{
+            color: rgba(255, 255, 255, 0.336);
+        }
+    }
 }

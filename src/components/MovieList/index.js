@@ -2,21 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetchPopularMovies } from '../../redux/actions/movies';
+import { fetchMoviesByFilter } from '../../redux/actions/movies';
 import { clearErrors } from '../../redux/actions/ui';
 import { withRouter } from 'react-router-dom'
 
 import GridView from './GridView';
 import TableView from './TableView';
-import GridSkeleton from '../Skeleton/GridSkeleton';
-import TableSkeleton from '../Skeleton/TableSkeleton';
+import GridSkeleton from '../../utils/Skeleton/GridSkeleton';
+import TableSkeleton from '../../utils/Skeleton/TableSkeleton';
 
 
 
 class MovieList extends React.Component {
     componentDidMount() {
         if (this.props.movies.length < 1) {
-            this.props.fetchPopularMovies(this.props.page, this.props.ui.filterBy)
+            this.props.fetchMoviesByFilter(this.props.page, this.props.ui.filterBy)
                 .catch(ex => {
                     this.props.history.push('/');
                 });
@@ -25,7 +25,7 @@ class MovieList extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.page !== prevProps.page) {
-            this.props.fetchPopularMovies(this.props.page, this.props.ui.filterBy)
+            this.props.fetchMoviesByFilter(this.props.page, this.props.ui.filterBy)
                 .catch(ex => {
                     this.props.history.push('/');
                 });
@@ -36,6 +36,7 @@ class MovieList extends React.Component {
         const { movies, numOfPages, clearErrors, page } = this.props;
         const { errors } = this.props.ui;
         if (this.props.ui.loading) {
+            console.log(this.props.location.pathname.indexOf('gridView') > -1)
             return (
                 <div>
                     {this.props.location.pathname.indexOf('gridView') > -1 ? <GridSkeleton /> : <TableSkeleton />}
@@ -66,7 +67,7 @@ const mapStateToProps = (state) => ({
     ui: state.UI
 });
 const mapActionsToProps = {
-    fetchPopularMovies,
+    fetchMoviesByFilter,
     clearErrors
 
 }

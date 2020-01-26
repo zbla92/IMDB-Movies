@@ -34,7 +34,6 @@ class TableView extends React.Component {
             alert(this.props.errors)
             window.location.reload()
         }
-
         const renderMovies = () => this.state.movies.map(movie => {
             return <MovieLine title={movie.title} year={movie.release_date} key={movie.id} />
         })
@@ -43,15 +42,31 @@ class TableView extends React.Component {
                 <table className='table is-hoverable table-view__table table'>
                     <thead>
                         <tr>
-                            <th className='table-view__title has-text-left' > <span className='table-view__span' onClick={() => this.sortMoviesAlphabetically(this.props.movies)}>Title<span className="view-table__tooltiptext">Sort by name</span></span></th>
-                            <th className='table-view__year has-text-right'><span className='table-view__span' onClick={() => this.sortMoviesByYear(this.props.movies)}>Year<span className="view-table__tooltiptext">Sort by year</span></span></th>
+                            <th className='table-view__title has-text-left' >
+                                <span className='table-view__span'
+                                    onClick={() => this.sortMoviesAlphabetically(this.props.movies)}>
+                                    Title
+                                    <span className="table-view__tooltiptext">
+                                        Sort by name
+                                    </span>
+                                </span>
+                            </th>
+                            <th className='table-view__year has-text-right'>
+                                <span className='table-view__span'
+                                    onClick={() => this.sortMoviesByYear(this.props.movies)}>
+                                    Year
+                                    <span className="table-view__tooltiptext">
+                                        Sort by year
+                                    </span>
+                                </span>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         {renderMovies()}
                     </tbody>
                 </table>
-                {this.props.numOfPages > 1 ? <Pagination numOfPages={this.props.numOfPages} /> : null}
+                {this.props.numOfPages > 1 ? <Pagination page={this.props.page} /> : null}
             </div>
         )
     }

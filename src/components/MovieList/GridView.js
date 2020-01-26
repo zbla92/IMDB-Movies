@@ -27,13 +27,15 @@ class GridView extends React.Component {
             window.location.reload()
         }
         return (
-            <div className='grid-view  animated fadeIn'>
+            < div className='grid-view  animated fadeIn' >
                 <div className='grid-view__container container'>
                     {this.renderMovies(this.props.movies)}
                 </div>
-                {this.props.numOfPages > 1 ? <Pagination page={this.props.page}
-                /> : null}
-            </div>
+                {
+                    this.props.numOfPages > 1 ? <Pagination page={this.props.page}
+                    /> : null
+                }
+            </div >
         )
     }
 };

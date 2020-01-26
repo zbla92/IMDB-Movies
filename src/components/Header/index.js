@@ -32,6 +32,7 @@ class Header extends React.Component {
     onLogoClick = () => {
         this.props.setFilters('popular');
         this.props.history.push(`/gridView/1`);
+        window.scrollTo(0, 0)
     }
 
     handleOpen = () => {
@@ -40,6 +41,8 @@ class Header extends React.Component {
             var nav = document.querySelector('#navMenu')
             burger.classList.toggle('is-active')
             nav.classList.toggle('navbar__menu--is-active')
+        } else {
+            window.scrollTo(0, 0)
         }
     }
 
@@ -76,11 +79,15 @@ class Header extends React.Component {
     }
 }
 
+Header.propTypes = {
+    setFilters: PropTypes.func.isRequired,
+    fetchMoviesByKeyword: PropTypes.func.isRequired,
+}
+
 const mapActionsToProps = {
     setFilters,
     fetchMoviesByKeyword
 };
-
 
 export default connect(null, mapActionsToProps)(withRouter(Header));
 

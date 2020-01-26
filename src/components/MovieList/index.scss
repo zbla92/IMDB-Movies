@@ -1,56 +1,57 @@
 @import '../App.scss';
 
-.grid-view,
+.grid-view{
+    margin-top: 70px;
+    transition: opacity 1s;
+        opacity: 1;
+        &__container{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            grid-gap: 1rem;
+            
+        }
+    }
+
+
+
+
+
 .table-view{
 margin-top: 70px;
 transition: opacity 1s;
     opacity: 1;
-}
-.table-view{
     overflow: hidden;
-}
-
-.table-view__table{
-    margin: 0 auto;
-    width: 90%;
-}
-
-
-.grid-view__container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    grid-gap: 1rem;
-    
-}
-// TABLE VIEW
-
-
-.table-view__span{
-    color: $secondaryFaded;
-    font-size: 130%;
-    &:hover{
-        cursor: pointer;
-        color: $primaryColor;
-        .view-table__tooltiptext{
-            visibility: visible;
+    &__table{
+        margin: 0 auto;
+        width: 90%;
+    }
+    &__span{
+        color: $secondaryFaded;
+        font-size: 130%;
+        &:hover{
+            cursor: pointer;
+            color: $primaryColor;
+            .table-view__tooltiptext{
+                visibility: visible;
+            }
         }
+    }
+    &__tooltiptext{
+        visibility: hidden;
+        width: 80px;
+        background-color: rgba(0, 0, 0, 0.479);
+        color: white;
+        font-size: 50%;
+        text-align: center;
+        border-radius: 3px;
+        padding: 5px 0;
+      
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
     }
 }
 
-.view-table__tooltiptext{
-    visibility: hidden;
-    width: 80px;
-    background-color: rgba(0, 0, 0, 0.479);
-    color: white;
-    font-size: 50%;
-    text-align: center;
-    border-radius: 3px;
-    padding: 5px 0;
-  
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-}
 
 @media only screen and  (min-width: 1025px)and (max-width: 1215px) {
     .grid-view__container{
@@ -63,17 +64,19 @@ transition: opacity 1s;
         width: 90%;
         margin: 0 auto;
         padding-top: 70px;
+        &__container{
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-gap: 0.5rem;
+        } 
     }
-    .grid-view__container{
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        grid-gap: 0.5rem;
-    } 
-    .table-view__span{
-        &:hover{
-            cursor: pointer;
-            color: $primaryColor;
-            .view-table__tooltiptext{
-                visibility: hidden;
+    .table-view{
+        &__span{
+            &:hover{
+                cursor: pointer;
+                color: $primaryColor;
+                .table-view__tooltiptext{
+                    visibility: hidden;
+                }
             }
         }
     }

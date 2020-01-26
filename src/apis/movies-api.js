@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = 'https://api.themoviedb.org/3/',
     API_KEY = '6b7007b9ce50c7ac58bb264563355724';
 
-const fetchPopularMovies = async (page = 1, filter = 'popular') => {
+const fetchMoviesByFilter = async (page = 1, filter = 'popular') => {
     try {
         const { data } = await axios.get(`${API_URL}${adjustUrlForFilters(filter)}`, {
             params: {
@@ -51,6 +51,6 @@ const scrollUp = () => {
 }
 
 export default {
-    fetchPopularMovies,
+    fetchMoviesByFilter,
     fetchMoviesByKeyword
 };

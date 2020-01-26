@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 
 import noImg from '../../images/photo_not_available.png'
 
-import GridImageWithLoader from './GridImageWIthLoader';
+import MovieCardLoader from '../../utils/MovieCardLoader/MovieCardLoader'
 
 class MovieCard extends Component {
     // Method to reduce the date since it comes in as year-mm-dd
@@ -35,12 +35,12 @@ class MovieCard extends Component {
 
         return (
             <div className="movie-card">
-                <GridImageWithLoader src={this.checkImg(imageUrl)} />
-                <div className="movie-card__overlay">
+                <MovieCardLoader src={this.checkImg(imageUrl)} title={title} year={this.dateToYear(year)} stars={this.popularityStars(vote_average)} />
+                {/* <div className="movie-card__overlay">
                     <h1 className='movie-card__overlay__title'>{title}</h1>
                     <span className="movie-card__overlay__year">{this.dateToYear(year)}</span>
                     <span className='movie-card__overlay__popularity'>{this.popularityStars(vote_average)}</span>
-                </div>
+                </div> */}
             </div >
         )
     }
