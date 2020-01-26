@@ -44,7 +44,7 @@ class GridView extends React.Component {
 GridView.propTypes = {
     movies: PropTypes.array.isRequired,
     clearErrors: PropTypes.func.isRequired,
-    numOfPages: PropTypes.number.isRequired,
+    numOfPages: PropTypes.number,
     page: PropTypes.number
 }
 

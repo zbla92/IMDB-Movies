@@ -1,7 +1,7 @@
 import '../index.scss'
 import React from 'react';
 
-import MovieLine from '../../MovieLine/MovieLine';
+import MovieRow from '../../MovieRow/MovieRow';
 import Pagination from '../../Pagination';
 
 class TableView extends React.Component {
@@ -35,7 +35,7 @@ class TableView extends React.Component {
             window.location.reload()
         }
         const renderMovies = () => this.state.movies.map(movie => {
-            return <MovieLine title={movie.title} year={movie.release_date} key={movie.id} />
+            return <MovieRow title={movie.title} year={movie.release_date} key={movie.id} />
         })
         return (
             <div className='container  table-view'>

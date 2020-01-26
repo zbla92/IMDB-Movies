@@ -1,8 +1,8 @@
-import './movieLine.scss'
+import './movieRow.scss'
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class MovieLine extends React.Component {
+class MovieRow extends React.Component {
     dateToYear(date) {
         return date.slice(0, -6)
     }
@@ -19,9 +19,9 @@ class MovieLine extends React.Component {
     }
 }
 
-MovieLine.propTypes = {
+MovieRow.propTypes = {
     title: PropTypes.string,
     year: PropTypes.string
 }
 
-export default MovieLine;
+export default MovieRow;
