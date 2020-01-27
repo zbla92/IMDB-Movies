@@ -22,7 +22,10 @@ class Pagination extends React.Component {
                 <button className={`button pagination__button ${className}`}
                     disabled={isDisabled}
                     key={name}
-                    onClick={() => this.props.history.push(`${viewType}/${btnPage}`)}>
+                    onClick={() => {
+                        this.props.history.push(`${viewType}/${btnPage}`)
+                        window.scrollTo(0, 0)
+                    }}>
                     {name}
                 </button>
             )
