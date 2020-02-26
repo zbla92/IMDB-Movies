@@ -1,42 +1,43 @@
 @import '../App.scss';
 
-.footer{
-    width: 100%;
-    margin-top: 100px;
-    height: 250px;
-    background-color:$primaryColor ;
-    &__container{
-        display: inline-flex;   
+.footer {
+  width: 100%;
+  margin-top: 100px;
+  height: 250px;
+  background-color: $primaryColor;
+  &__container {
+    display: inline-flex;
+    margin-top: 60px;
+  }
+  &__links--left {
+    display: flex;
+    flex-direction: column;
+    min-width: 50vw;
+    align-items: center;
+    justify-content: center;
+  }
+  &__links--right {
+    min-width: 40vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  &__dependencies {
+    display: flex;
+    flex-direction: column;
+  }
+  &__sentance {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    text-align: center;
+    &__span {
+      margin-top: auto;
     }
-    &__links--left{
-        display: flex;
-        flex-direction: column;
-        min-width: 50vw;
-        align-items: center;
-        justify-content: center;
+  }
+  &__icon {
+    &:hover {
+      color: $secondaryColor;
     }
-    &__links--right{
-        min-width: 40vw;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-    }
-    &__dependencies{
-        display: flex;
-        flex-direction: column;
-    }
-    &__sentance{
-        display: flex;
-        flex-direction: column;
-        height: 100px;
-        text-align: center;
-        &__span{
-            margin-top: auto;
-        }
-    }
-    &__icon{
-        &:hover{
-            color: $secondaryColor;
-        }
-    }
+  }
 }
