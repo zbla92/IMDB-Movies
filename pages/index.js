@@ -4,19 +4,22 @@ import Link from 'next/link';
 import { Provider } from 'react-redux';
 import store from '../src/redux/store';
 
+import Layout from '../src/components/Layout';
+
 function App() {
   return (
     <div className='App'>
-      <Link href='/GridView'>
-        <div>
+      <Layout>
+        <Link href='/gridview'>
           <a>GridView</a>
-        </div>
-      </Link>
-      <Link href='/TableView'>
-        <div>
+        </Link>
+        <Link href='/tableview'>
           <a>TableView</a>
-        </div>
-      </Link>
+        </Link>
+        <Link href='/test'>
+          <a>test</a>
+        </Link>
+      </Layout>
     </div>
   );
 }

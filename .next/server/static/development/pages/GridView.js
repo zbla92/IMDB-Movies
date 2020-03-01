@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -4460,9 +4460,9 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./pages/GridView.js":
+/***/ "./pages/gridview.js":
 /*!***************************!*\
-  !*** ./pages/GridView.js ***!
+  !*** ./pages/gridview.js ***!
   \***************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -4472,31 +4472,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _src_components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/components/Layout */ "./src/components/Layout/index.js");
-/* harmony import */ var _src_components_MovieList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/MovieList */ "./src/components/MovieList/index.js");
-/* harmony import */ var _src_components_SortNavigation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/components/SortNavigation */ "./src/components/SortNavigation/index.js");
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/pages/GridView.js";
+var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/pages/gridview.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
 
 
 
 class GridView extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
-    return __jsx(_src_components_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11
+        lineNumber: 8
       },
       __self: this
-    }, __jsx(_src_components_MovieList__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      type: "grid",
+    }, __jsx(_src_components_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
+        lineNumber: 9
       },
       __self: this
-    }));
+    }, __jsx("h1", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10
+      },
+      __self: this
+    }, "bang")));
   }
 
 }
@@ -4863,8 +4864,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _redux_actions_movies__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../redux/actions/movies */ "./src/redux/actions/movies.js");
 /* harmony import */ var _redux_actions_ui__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../redux/actions/ui */ "./src/redux/actions/ui.js");
-/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-icons/io */ "react-icons/io");
-/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_icons_io__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../images/logo.png */ "./src/images/logo.png");
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-icons/io */ "react-icons/io");
+/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_icons_io__WEBPACK_IMPORTED_MODULE_9__);
 var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/components/Header/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
@@ -4878,6 +4881,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
  //ICONS
+
 
 
 
@@ -4914,13 +4918,12 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
     });
 
     _defineProperty(this, "handleOpen", () => {
-      // if (window.innerWidth < 1024) {
-      //     var burger = document.querySelector('.burger')
-      //     var nav = document.querySelector('#navMenu')
-      //     burger.classList.toggle('is-active')
-      //     nav.classList.toggle('navbar__menu--is-active')
-      // }
-      console.log('handleOpen');
+      if (window.innerWidth < 1024) {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#navMenu');
+        burger.classList.toggle('is-active');
+        nav.classList.toggle('navbar__menu--is-active');
+      }
     });
   }
 
@@ -4930,7 +4933,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
     // } = this.props;
     // const page = parseInt(pathname.split('/').pop(), 10);
     //test
-    const page = 2;
+    const page = '';
     const pathname = 'gridView'; //
 
     return __jsx("nav", {
@@ -4957,7 +4960,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
       },
       __self: this
     }, __jsx("img", {
-      src: this.props.logo,
+      src: _images_logo_png__WEBPACK_IMPORTED_MODULE_8___default.a,
       className: "navbar-brand__image",
       alt: "logo",
       onClick: () => this.onLogoClick(),
@@ -5029,7 +5032,20 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
         lineNumber: 98
       },
       __self: this
-    }, __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_8__["IoMdGrid"], {
+    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      href: `/gridview`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 99
+      },
+      __self: this
+    }, __jsx("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 100
+      },
+      __self: this
+    }, __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_9__["IoMdGrid"], {
       className: pathname.indexOf('GridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active',
       onClick: e => {
         this.handleOpen();
@@ -5037,10 +5053,23 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100
+        lineNumber: 101
       },
       __self: this
-    }), __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_8__["IoIosList"], {
+    }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      href: `/tableview`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 114
+      },
+      __self: this
+    }, __jsx("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 115
+      },
+      __self: this
+    }, __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_9__["IoIosList"], {
       className: pathname.indexOf('TableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active',
       onClick: e => {
         this.handleOpen();
@@ -5048,10 +5077,10 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 114
+        lineNumber: 116
       },
       __self: this
-    }))))));
+    })))))));
   }
 
 } // Header.propTypes = {
@@ -5059,14 +5088,9 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
 //   fetchMoviesByKeyword: PropTypes.func.isRequired,
 //   location: PropTypes.object.isRequired
 // };
-// const mapActionsToProps = {
-//   setFilters,
-//   fetchMoviesByKeyword
-// };
-// export default connect(null, mapActionsToProps)(withRouter(Header));
 
 
-/* harmony default export */ __webpack_exports__["default"] = (Header);
+/* harmony default export */ __webpack_exports__["default"] = (Header); // export default Header;
 
 /***/ }),
 
@@ -5092,10 +5116,13 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Footer */ "./src/components/Footer/index.js");
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Header */ "./src/components/Header/index.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Footer */ "./src/components/Footer/index.js");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Header */ "./src/components/Header/index.js");
 var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/components/Layout/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -5103,995 +5130,58 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const Layout = props => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 7
-  },
-  __self: undefined
-}, __jsx(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
-  __source: {
-    fileName: _jsxFileName,
     lineNumber: 8
   },
   __self: undefined
-}), props.children, __jsx(_Footer__WEBPACK_IMPORTED_MODULE_1__["default"], {
+}, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 9
+  },
+  __self: undefined
+}, __jsx("title", {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 10
   },
   __self: undefined
+}, "Vivant Movies"), __jsx("link", {
+  rel: "stylesheet",
+  href: "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 11
+  },
+  __self: undefined
+}), __jsx("link", {
+  rel: "stylesheet",
+  href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 15
+  },
+  __self: undefined
+})), __jsx(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 20
+  },
+  __self: undefined
+}), __jsx("div", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 21
+  },
+  __self: undefined
+}, props.children), __jsx(_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 22
+  },
+  __self: undefined
 }));
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
-
-/***/ }),
-
-/***/ "./src/components/MovieCard/MovieCard.js":
-/*!***********************************************!*\
-  !*** ./src/components/MovieCard/MovieCard.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _movieCard_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./movieCard.scss */ "./src/components/MovieCard/movieCard.scss");
-/* harmony import */ var _movieCard_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_movieCard_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/io */ "react-icons/io");
-/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_icons_io__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _redux_actions_movies__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../redux/actions/movies */ "./src/redux/actions/movies.js");
-/* harmony import */ var _images_photo_not_available_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../images/photo_not_available.png */ "./src/images/photo_not_available.png");
-/* harmony import */ var _images_photo_not_available_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_photo_not_available_png__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _utils_MovieCardLoader_MovieCardLoader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/MovieCardLoader/MovieCardLoader */ "./src/utils/MovieCardLoader/MovieCardLoader.js");
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/components/MovieCard/MovieCard.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
-
-
-
-
-
-
-
-
-
-class MovieCard extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
-  // Method to reduce the date since it comes in as year-mm-dd
-  dateToYear(date = '1999-12-12') {
-    return date ? date.slice(0, -6) : 2000;
-  } // Method that returns number of stars based on popularity of the movie
-
-
-  popularityStars(rating) {
-    rating = Math.round(rating);
-    const stars = [__jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_1__["IoMdStarOutline"], {
-      key: 1,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 22
-      },
-      __self: this
-    }), __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_1__["IoMdStarOutline"], {
-      key: 2,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 23
-      },
-      __self: this
-    }), __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_1__["IoMdStarOutline"], {
-      key: 3,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 24
-      },
-      __self: this
-    }), __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_1__["IoMdStarOutline"], {
-      key: 4,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 25
-      },
-      __self: this
-    }), __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_1__["IoMdStarOutline"], {
-      key: 5,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 26
-      },
-      __self: this
-    })];
-
-    for (let i = 1; i <= rating; i++) {
-      if (i % 2 === 0) {
-        stars[i / 2 - 1] = __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_1__["IoMdStar"], {
-          key: -i,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 30
-          },
-          __self: this
-        });
-      } else if (i % 2 === 1 && i === rating) {
-        stars[Math.floor(i / 2)] = __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_1__["IoMdStarHalf"], {
-          key: -i,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 32
-          },
-          __self: this
-        });
-      }
-    }
-
-    return stars;
-  } // If no img return local noImage image
-
-
-  checkImg(url) {
-    if (url.length < 60) return _images_photo_not_available_png__WEBPACK_IMPORTED_MODULE_6___default.a;else return url;
-  }
-
-  render() {
-    const {
-      imageUrl,
-      title,
-      year,
-      vote_average,
-      id
-    } = this.props;
-    return __jsx("div", {
-      className: "movie-card",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 47
-      },
-      __self: this
-    }, __jsx(_utils_MovieCardLoader_MovieCardLoader__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      src: this.checkImg(imageUrl),
-      title: title,
-      id: id,
-      year: this.dateToYear(year),
-      stars: this.popularityStars(vote_average),
-      fetchMovieDetails: this.props.fetchMovieDetails,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 49
-      },
-      __self: this
-    }));
-  }
-
-}
-
-MovieCard.propTypes = {
-  imageUrl: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
-  tite: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
-  year: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
-  vote_average: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
-  fetchMovieDetails: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired
-};
-const mapActionsToProps = {
-  fetchMovieDetails: _redux_actions_movies__WEBPACK_IMPORTED_MODULE_5__["fetchMovieDetails"]
-};
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(null, mapActionsToProps)(MovieCard));
-
-/***/ }),
-
-/***/ "./src/components/MovieCard/movieCard.scss":
-/*!*************************************************!*\
-  !*** ./src/components/MovieCard/movieCard.scss ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./src/components/MovieList/GridView/GridView.js":
-/*!*******************************************************!*\
-  !*** ./src/components/MovieList/GridView/GridView.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.scss */ "./src/components/MovieList/index.scss");
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _MovieCard_MovieCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../MovieCard/MovieCard */ "./src/components/MovieCard/MovieCard.js");
-/* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Pagination */ "./src/components/Pagination/index.js");
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/components/MovieList/GridView/GridView.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-class GridView extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "state", {
-      insertRowEvery: 5
-    });
-  }
-
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
-
-  renderMovies(movies) {
-    const rendered = movies.map(({
-      id,
-      poster_path,
-      title,
-      release_date,
-      vote_average
-    }) => {
-      const imageUrl = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`;
-      return __jsx(_MovieCard_MovieCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        imageUrl: imageUrl,
-        title: title,
-        year: release_date,
-        vote_average: vote_average,
-        key: id,
-        id: id,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 21
-        },
-        __self: this
-      });
-    });
-    return rendered;
-  }
-
-  render() {
-    if (this.props.errors) {
-      alert(this.props.errors);
-      window.location.reload();
-    }
-
-    return __jsx("div", {
-      className: "grid-view  animated fadeIn",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "grid-view__container container",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41
-      },
-      __self: this
-    }, this.renderMovies(this.props.movies)), this.props.numOfPages > 1 ? __jsx(_Pagination__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      page: this.props.page,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 45
-      },
-      __self: this
-    }) : null);
-  }
-
-}
-
-GridView.propTypes = {
-  movies: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired,
-  clearErrors: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired,
-  numOfPages: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.number,
-  page: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.number
-};
-/* harmony default export */ __webpack_exports__["default"] = (GridView);
-
-/***/ }),
-
-/***/ "./src/components/MovieList/TableView/TableView.js":
-/*!*********************************************************!*\
-  !*** ./src/components/MovieList/TableView/TableView.js ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.scss */ "./src/components/MovieList/index.scss");
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _MovieRow_MovieRow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../MovieRow/MovieRow */ "./src/components/MovieRow/MovieRow.js");
-/* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Pagination */ "./src/components/Pagination/index.js");
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/components/MovieList/TableView/TableView.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-class TableView extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "state", {
-      movies: this.props.movies
-    });
-
-    _defineProperty(this, "sortMoviesByYear", movies => {
-      const sorted = movies.slice().sort((a, b) => {
-        return a.release_date > b.release_date ? -1 : a.release_date < b.release_date ? 1 : 0;
-      });
-      this.setState({
-        movies: sorted
-      });
-    });
-
-    _defineProperty(this, "sortMoviesAlphabetically", movies => {
-      const sorted = movies.slice().sort((a, b) => {
-        const movieA = a.title.charAt(0);
-        const movieB = b.title.charAt(0);
-        return movieA < movieB ? -1 : movieA > movieB ? 1 : 0;
-      });
-      this.setState({
-        movies: sorted
-      });
-    });
-  }
-
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
-
-  render() {
-    if (this.props.errors) {
-      alert(this.props.errors);
-      window.location.reload();
-    }
-
-    const renderMovies = () => this.state.movies.map(movie => {
-      return __jsx(_MovieRow_MovieRow__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        title: movie.title,
-        year: movie.release_date,
-        key: movie.id,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 38
-        },
-        __self: this
-      });
-    });
-
-    return __jsx("div", {
-      className: "container  table-view",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41
-      },
-      __self: this
-    }, __jsx("table", {
-      className: "table is-hoverable table-view__table table",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 42
-      },
-      __self: this
-    }, __jsx("thead", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 43
-      },
-      __self: this
-    }, __jsx("tr", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 44
-      },
-      __self: this
-    }, __jsx("th", {
-      className: "table-view__title has-text-left",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 45
-      },
-      __self: this
-    }, __jsx("span", {
-      className: "table-view__span",
-      onClick: () => this.sortMoviesAlphabetically(this.props.movies),
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 46
-      },
-      __self: this
-    }, "Title", __jsx("span", {
-      className: "table-view__tooltiptext",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 49
-      },
-      __self: this
-    }, "Sort by name"))), __jsx("th", {
-      className: "table-view__year has-text-right",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 54
-      },
-      __self: this
-    }, __jsx("span", {
-      className: "table-view__span",
-      onClick: () => this.sortMoviesByYear(this.props.movies),
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 55
-      },
-      __self: this
-    }, "Year", __jsx("span", {
-      className: "table-view__tooltiptext",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 58
-      },
-      __self: this
-    }, "Sort by year"))))), __jsx("tbody", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 65
-      },
-      __self: this
-    }, renderMovies())), this.props.numOfPages > 1 ? __jsx(_Pagination__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      page: this.props.page,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 69
-      },
-      __self: this
-    }) : null);
-  }
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (TableView);
-
-/***/ }),
-
-/***/ "./src/components/MovieList/index.js":
-/*!*******************************************!*\
-  !*** ./src/components/MovieList/index.js ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _redux_actions_movies__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../redux/actions/movies */ "./src/redux/actions/movies.js");
-/* harmony import */ var _redux_actions_ui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../redux/actions/ui */ "./src/redux/actions/ui.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _GridView_GridView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./GridView/GridView */ "./src/components/MovieList/GridView/GridView.js");
-/* harmony import */ var _TableView_TableView__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TableView/TableView */ "./src/components/MovieList/TableView/TableView.js");
-/* harmony import */ var _utils_Skeleton_GridSkeleton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/Skeleton/GridSkeleton */ "./src/utils/Skeleton/GridSkeleton.js");
-/* harmony import */ var _utils_Skeleton_TableSkeleton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/Skeleton/TableSkeleton */ "./src/utils/Skeleton/TableSkeleton.js");
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/components/MovieList/index.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-
-
-
-
-
-
- // class MovieList extends React.Component {
-//   componentDidMount() {
-//     if (this.props.movies.length < 1) {
-//       this.props
-//         .fetchMoviesByFilter(this.props.page, this.props.ui.filterBy)
-//         .catch(ex => {
-//           this.props.history.push('/');
-//         });
-//     }
-//   }
-//   componentDidUpdate(prevProps) {
-//     if (this.props.page !== prevProps.page) {
-//       this.props
-//         .fetchMoviesByFilter(this.props.page, this.props.ui.filterBy)
-//         .catch(err => {
-//           this.props.history.push('/');
-//         });
-//     }
-//   }
-//   render() {
-//     const { movies, numOfPages, clearErrors, page } = this.props;
-//     const { errors } = this.props.ui;
-//     if (this.props.ui.loading) {
-//       return (
-//         <div>
-//           {this.props.location.pathname.indexOf('gridView') > -1 ? (
-//             <GridSkeleton />
-//           ) : (
-//             <TableSkeleton />
-//           )}
-//         </div>
-//       );
-//     }
-//     if (this.props.type === 'grid') {
-//       return (
-//         <GridView
-//           movies={movies}
-//           errors={errors}
-//           clearErrors={clearErrors}
-//           numOfPages={numOfPages}
-//           page={page}
-//         />
-//       );
-//     } else {
-//       return (
-//         <TableView
-//           movies={movies}
-//           errors={errors}
-//           clearErrors={clearErrors}
-//           numOfPages={numOfPages}
-//           page={page}
-//         />
-//       );
-//     }
-//   }
-// }
-// MovieList.propTypes = {
-//   movies: PropTypes.array.isRequired,
-//   ui: PropTypes.object,
-//   numOfPages: PropTypes.number,
-//   clearErrors: PropTypes.func,
-//   page: PropTypes.number.isRequired
-// };
-// MovieList.defaultProps = {
-//   movies: []
-// };
-// const mapStateToProps = state => ({
-//   movies: state.data.movies,
-//   numOfPages: state.data.numOfPages,
-//   ui: state.UI
-// });
-// const mapActionsToProps = {
-//   fetchMoviesByFilter,
-//   clearErrors
-// };
-// export default connect(
-//   mapStateToProps,
-//   mapActionsToProps
-// )(withRouter(MovieList));
-
-function MovieList({
-  type
-}) {
-  return __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 102
-    },
-    __self: this
-  }, "MOvie List type: ", type);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (MovieList);
-
-/***/ }),
-
-/***/ "./src/components/MovieList/index.scss":
-/*!*********************************************!*\
-  !*** ./src/components/MovieList/index.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./src/components/MovieRow/MovieRow.js":
-/*!*********************************************!*\
-  !*** ./src/components/MovieRow/MovieRow.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _movieRow_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./movieRow.scss */ "./src/components/MovieRow/movieRow.scss");
-/* harmony import */ var _movieRow_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_movieRow_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/components/MovieRow/MovieRow.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
-
-
-
-
-class MovieRow extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
-  dateToYear(date) {
-    return date.slice(0, -6);
-  }
-
-  render() {
-    const {
-      title,
-      year
-    } = this.props;
-    return __jsx("tr", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 13
-      },
-      __self: this
-    }, __jsx("td", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 14
-      },
-      __self: this
-    }, title), __jsx("td", {
-      className: "table-view__table__tbody__th has-text-right",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 15
-      },
-      __self: this
-    }, this.dateToYear(year)));
-  }
-
-}
-
-MovieRow.propTypes = {
-  title: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-  year: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string
-};
-/* harmony default export */ __webpack_exports__["default"] = (MovieRow);
-
-/***/ }),
-
-/***/ "./src/components/MovieRow/movieRow.scss":
-/*!***********************************************!*\
-  !*** ./src/components/MovieRow/movieRow.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./src/components/Pagination/index.js":
-/*!********************************************!*\
-  !*** ./src/components/Pagination/index.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ "./src/components/Pagination/index.scss");
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _redux_actions_movies__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../redux/actions/movies */ "./src/redux/actions/movies.js");
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/components/Pagination/index.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-class Pagination extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "generateButton", (btnPage, isDisabled, numOfPages, name = btnPage, className = '') => {
-      // This function is used to generate pagination button. 
-      //btnPage = expression that resolves buttons number (page number)
-      // isDisabled = true or false - rendering button clickable or not
-      // numOfPages = Total number of pages fetched for the current filter
-      //name = rendered name for the button, usually number, next || prev
-      // className =  passing additional styling to particular button
-      const viewType = this.props.location.pathname.split('View')[0] + 'View';
-
-      if (btnPage >= 1 && btnPage <= numOfPages || name === 'Prev' || name === 'Next') {
-        return __jsx("button", {
-          className: `button pagination__button ${className}`,
-          disabled: isDisabled,
-          key: name,
-          onClick: () => {
-            this.props.history.push(`${viewType}/${btnPage}`);
-            window.scrollTo(0, 0);
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 22
-          },
-          __self: this
-        }, name);
-      } else return null;
-    });
-  }
-
-  render() {
-    const {
-      numOfPages,
-      page: currentPage
-    } = this.props;
-
-    const dots = __jsx("span", {
-      className: "pagination-ellipsis",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 37
-      },
-      __self: this
-    }, "\u2026");
-
-    return __jsx("div", {
-      className: "buttons pagination",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40
-      },
-      __self: this
-    }, this.generateButton(currentPage - 1, currentPage > 1 ? false : true, numOfPages, 'Prev', 'pagination__button__next'), this.generateButton(currentPage > 2 ? 1 : null, false, numOfPages), currentPage > 2 ? dots : null, this.generateButton(window.innerWidth < 600 ? null : currentPage - 1, false, numOfPages), this.generateButton(currentPage, true, numOfPages, currentPage, 'pagination__button--is-active'), this.generateButton(window.innerWidth < 600 ? null : currentPage + 1, false, numOfPages), currentPage < numOfPages - 1 ? dots : null, this.generateButton(currentPage < numOfPages - 1 ? numOfPages : null, false, numOfPages), this.generateButton(currentPage + 1, currentPage < numOfPages ? false : true, numOfPages, 'Next', 'pagination__button__prev'));
-  }
-
-}
-
-Pagination.defaultProps = {
-  currentPage: 1
-};
-Pagination.propTypes = {
-  ui: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired,
-  fetchMoviesByFilter: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired,
-  numOfPages: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.number.isRequired,
-  page: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.number.isRequired
-};
-
-const mapStateToProps = state => ({
-  ui: state.UI,
-  numOfPages: state.data.numOfPages
-});
-
-const mapActionsToProps = {
-  fetchMoviesByFilter: _redux_actions_movies__WEBPACK_IMPORTED_MODULE_5__["fetchMoviesByFilter"]
-};
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapActionsToProps)(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Pagination)));
-
-/***/ }),
-
-/***/ "./src/components/Pagination/index.scss":
-/*!**********************************************!*\
-  !*** ./src/components/Pagination/index.scss ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./src/components/SortNavigation/index.js":
-/*!************************************************!*\
-  !*** ./src/components/SortNavigation/index.js ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ "./src/components/SortNavigation/index.scss");
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _redux_actions_movies__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../redux/actions/movies */ "./src/redux/actions/movies.js");
-/* harmony import */ var _redux_actions_ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../redux/actions/ui */ "./src/redux/actions/ui.js");
-/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-icons/io */ "react-icons/io");
-/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_icons_io__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-icons/md */ "react-icons/md");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_icons_md__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-icons/ai */ "react-icons/ai");
-/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_icons_ai__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_9__);
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/components/SortNavigation/index.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-
-
-
-
-class SortNavigation extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "state", {
-      viewType: 'gridView'
-    });
-  }
-
-  componentDidMount() {
-    const view = this.props.location.pathname.split('/')[1];
-
-    if (this.state.viewType !== view) {}
-  }
-
-  sortBy(filter, e) {
-    if (this.props.filterBy !== filter) {
-      this.props.setFilters(filter);
-      this.filterMoviesBy(filter);
-      this.props.history.push(`/${this.state.viewType}/1`);
-    }
-  }
-
-  filterMoviesBy(filter) {
-    this.props.fetchMoviesByFilter(1, filter);
-  }
-
-  render() {
-    return __jsx("div", {
-      className: "sort-",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 38
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "sort-navigation",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39
-      },
-      __self: this
-    }, __jsx("div", {
-      className: `column sort-navigation__btn ${this.props.filterBy === 'top_rated' ? 'sort-navigation__btn__active' : ''}`,
-      onClick: () => {
-        this.sortBy('top_rated');
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40
-      },
-      __self: this
-    }, __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_6__["IoMdStar"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40
-      },
-      __self: this
-    }), " ", __jsx("span", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40
-      },
-      __self: this
-    }, "Rating")), __jsx("div", {
-      className: `column sort-navigation__btn ${this.props.filterBy === 'popular' ? 'sort-navigation__btn__active' : ''}`,
-      onClick: () => {
-        this.sortBy('popular');
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41
-      },
-      __self: this
-    }, " ", __jsx(react_icons_ai__WEBPACK_IMPORTED_MODULE_8__["AiOutlineFire"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41
-      },
-      __self: this
-    }), " ", __jsx("span", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41
-      },
-      __self: this
-    }, "Popularity")), __jsx("div", {
-      className: `column sort-navigation__btn ${this.props.filterBy === 'trending' ? 'sort-navigation__btn__active' : ''}`,
-      onClick: () => {
-        this.sortBy('trending');
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 42
-      },
-      __self: this
-    }, " ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_7__["MdDateRange"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 42
-      },
-      __self: this
-    }), " ", __jsx("span", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 42
-      },
-      __self: this
-    }, "Trending"))));
-  }
-
-}
-
-SortNavigation.defaultProps = {
-  filterBy: 'popular'
-};
-SortNavigation.propTypes = {
-  fetchMoviesByFilter: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired,
-  filterBy: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired
-};
-const mapActionsToProps = {
-  fetchMoviesByFilter: _redux_actions_movies__WEBPACK_IMPORTED_MODULE_4__["fetchMoviesByFilter"],
-  setFilters: _redux_actions_ui__WEBPACK_IMPORTED_MODULE_5__["setFilters"]
-};
-
-const mapStateToProps = state => ({
-  filterBy: state.UI.filterBy
-});
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapActionsToProps)(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["withRouter"])(SortNavigation)));
-
-/***/ }),
-
-/***/ "./src/components/SortNavigation/index.scss":
-/*!**************************************************!*\
-  !*** ./src/components/SortNavigation/index.scss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
 
 /***/ }),
 
@@ -6128,6 +5218,17 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0
 
 /***/ }),
 
+/***/ "./src/images/logo.png":
+/*!*****************************!*\
+  !*** ./src/images/logo.png ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
 /***/ "./src/images/netflix.png":
 /*!********************************!*\
   !*** ./src/images/netflix.png ***!
@@ -6136,17 +5237,6 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ "./src/images/photo_not_available.png":
-/*!********************************************!*\
-  !*** ./src/images/photo_not_available.png ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/_next/static/images/photo_not_available-8dd3cc775f995ae0fa838e1b0f820372.png";
 
 /***/ }),
 
@@ -6330,344 +5420,14 @@ const setFilters = filterBy => dispatch => {
 
 /***/ }),
 
-/***/ "./src/utils/MovieCardLoader/MovieCardLoader.js":
-/*!******************************************************!*\
-  !*** ./src/utils/MovieCardLoader/MovieCardLoader.js ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _MovieCardLoader_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MovieCardLoader.scss */ "./src/utils/MovieCardLoader/MovieCardLoader.scss");
-/* harmony import */ var _MovieCardLoader_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_MovieCardLoader_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/utils/MovieCardLoader/MovieCardLoader.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-class MovieCardLoader extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "_isMounted", false);
-
-    _defineProperty(this, "state", {
-      isLoaded: false
-    });
-  }
-
-  componentDidMount() {
-    this._isMounted = true;
-    const image = new Image();
-
-    image.onload = () => {
-      if (this._isMounted) {
-        this.setState({
-          isLoaded: true
-        });
-      }
-    };
-
-    image.src = this.props.src;
-  }
-
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
-
-  render() {
-    const {
-      src,
-      title,
-      year,
-      stars,
-      fetchMovieDetails,
-      id
-    } = this.props;
-    const {
-      isLoaded
-    } = this.state;
-    return isLoaded ? __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 30
-      },
-      __self: this
-    }, __jsx("img", {
-      src: src,
-      alt: "movie_image",
-      className: "movie-card__img",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 31
-      },
-      __self: this
-    }), __jsx("div", {
-      className: "movie-card__overlay",
-      onClick: () => fetchMovieDetails(id),
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 32
-      },
-      __self: this
-    }, __jsx("h1", {
-      className: "movie-card__overlay__title",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36
-      },
-      __self: this
-    }, title), __jsx("span", {
-      className: "movie-card__overlay__year",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 37
-      },
-      __self: this
-    }, year), __jsx("span", {
-      className: "movie-card__overlay__popularity",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 38
-      },
-      __self: this
-    }, stars))) : __jsx("div", {
-      className: "movie-card__faker movie-card-loader",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 42
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "loader ",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 43
-      },
-      __self: this
-    }));
-  }
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (MovieCardLoader);
-
-/***/ }),
-
-/***/ "./src/utils/MovieCardLoader/MovieCardLoader.scss":
-/*!********************************************************!*\
-  !*** ./src/utils/MovieCardLoader/MovieCardLoader.scss ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./src/utils/Skeleton/GridSkeleton.js":
-/*!********************************************!*\
-  !*** ./src/utils/Skeleton/GridSkeleton.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _gridSkeleton_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gridSkeleton.scss */ "./src/utils/Skeleton/gridSkeleton.scss");
-/* harmony import */ var _gridSkeleton_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_gridSkeleton_scss__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/utils/Skeleton/GridSkeleton.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-const GridSkeleton = props => {
-  const content = Array.from({
-    length: 10
-  }).map((e, index) => __jsx("div", {
-    className: "movie-card movie-card__skeleton",
-    key: index,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6
-    },
-    __self: undefined
-  }, __jsx("div", {
-    className: "movie-card__faker",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7
-    },
-    __self: undefined
-  })));
-  return __jsx("div", {
-    className: "grid-view",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: undefined
-  }, __jsx("div", {
-    className: "grid-view__container container",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: undefined
-  }, content));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (GridSkeleton);
-
-/***/ }),
-
-/***/ "./src/utils/Skeleton/TableSkeleton.js":
-/*!*********************************************!*\
-  !*** ./src/utils/Skeleton/TableSkeleton.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tableSkeleton_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tableSkeleton.scss */ "./src/utils/Skeleton/tableSkeleton.scss");
-/* harmony import */ var _tableSkeleton_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tableSkeleton_scss__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/utils/Skeleton/TableSkeleton.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-const TableSkeleton = props => {
-  const content = Array.from({
-    length: 20
-  }).map((e, index) => __jsx("tr", {
-    key: index,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6
-    },
-    __self: undefined
-  }, __jsx("td", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7
-    },
-    __self: undefined
-  }, "\xA0"), __jsx("td", {
-    className: "table-view__table__tbody__th has-text-right",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: undefined
-  }, "\xA0")));
-  return __jsx("div", {
-    className: "container  table-view",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: undefined
-  }, __jsx("table", {
-    className: "table is-hoverable table-view__table table",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: undefined
-  }, __jsx("thead", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14
-    },
-    __self: undefined
-  }, __jsx("tr", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15
-    },
-    __self: undefined
-  }, __jsx("th", {
-    className: "table-view__title has-text-left",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: undefined
-  }, " ", __jsx("span", {
-    className: "table-view__span",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: undefined
-  }, "\xA0")), __jsx("th", {
-    className: "table-view__year has-text-right",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    },
-    __self: undefined
-  }, __jsx("span", {
-    className: "table-view__span",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    },
-    __self: undefined
-  }, "\xA0")))), __jsx("tbody", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    },
-    __self: undefined
-  }, content)));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (TableSkeleton);
-
-/***/ }),
-
-/***/ "./src/utils/Skeleton/gridSkeleton.scss":
-/*!**********************************************!*\
-  !*** ./src/utils/Skeleton/gridSkeleton.scss ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./src/utils/Skeleton/tableSkeleton.scss":
-/*!***********************************************!*\
-  !*** ./src/utils/Skeleton/tableSkeleton.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 5:
+/***/ 3:
 /*!*********************************!*\
-  !*** multi ./pages/GridView.js ***!
+  !*** multi ./pages/gridview.js ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/milanblaz/Documents/Projects/vivant_movies/pages/GridView.js */"./pages/GridView.js");
+module.exports = __webpack_require__(/*! /Users/milanblaz/Documents/Projects/vivant_movies/pages/gridview.js */"./pages/gridview.js");
 
 
 /***/ }),
@@ -6680,6 +5440,17 @@ module.exports = __webpack_require__(/*! /Users/milanblaz/Documents/Projects/viv
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
+
+/***/ }),
+
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/head");
 
 /***/ }),
 
@@ -6716,17 +5487,6 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ "react-icons/ai":
-/*!*********************************!*\
-  !*** external "react-icons/ai" ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("react-icons/ai");
-
-/***/ }),
-
 /***/ "react-icons/io":
 /*!*********************************!*\
   !*** external "react-icons/io" ***!
@@ -6735,17 +5495,6 @@ module.exports = require("react-icons/ai");
 /***/ (function(module, exports) {
 
 module.exports = require("react-icons/io");
-
-/***/ }),
-
-/***/ "react-icons/md":
-/*!*********************************!*\
-  !*** external "react-icons/md" ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("react-icons/md");
 
 /***/ }),
 
@@ -6783,4 +5532,4 @@ module.exports = require("url");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=GridView.js.map
+//# sourceMappingURL=gridview.js.map

@@ -110,6 +110,18 @@ module.exports = _interopRequireDefault;
 
 /***/ }),
 
+/***/ "./node_modules/next/app.js":
+/*!**********************************!*\
+  !*** ./node_modules/next/app.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./dist/pages/_app */ "./node_modules/next/dist/pages/_app.js")
+
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/next-server/lib/utils.js":
 /*!*********************************************************!*\
   !*** ./node_modules/next/dist/next-server/lib/utils.js ***!
@@ -378,15 +390,290 @@ function createUrl(router) {
 
 /***/ }),
 
+/***/ "./pages/_app.js":
+/*!***********************!*\
+  !*** ./pages/_app.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _src_redux_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/redux/store */ "./src/redux/store.js");
+var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/pages/_app.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+
+
+
+class Vivant extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
+  async componentDidMount() {
+    console.log('Mounted this motherfucker');
+  }
+
+  render() {
+    const {
+      Component,
+      store,
+      pageProps
+    } = this.props;
+    return __jsx(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
+      store: store,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15
+      },
+      __self: this
+    }, __jsx(Component, _extends({}, pageProps, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    })));
+  }
+
+}
+
+Vivant.getInitialProps = async ({
+  Component,
+  ctx
+}) => {
+  let pageProps = {};
+
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+
+  console.log(ctx);
+  return {
+    pageProps
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3___default()(_src_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"])(Vivant));
+
+/***/ }),
+
+/***/ "./src/redux/actions/types.js":
+/*!************************************!*\
+  !*** ./src/redux/actions/types.js ***!
+  \************************************/
+/*! exports provided: FETCH_POPULAR_MOVIES, FETCH_MOVIES_BY_KEYWORD, LOADING_UI, SET_ERRORS, STOP_LOADING_UI, CLEAR_ERRORS, FILTER_BY, KEYWORD, FETCH_MOVIE_DETAILS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_POPULAR_MOVIES", function() { return FETCH_POPULAR_MOVIES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_MOVIES_BY_KEYWORD", function() { return FETCH_MOVIES_BY_KEYWORD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOADING_UI", function() { return LOADING_UI; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ERRORS", function() { return SET_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STOP_LOADING_UI", function() { return STOP_LOADING_UI; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_ERRORS", function() { return CLEAR_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FILTER_BY", function() { return FILTER_BY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEYWORD", function() { return KEYWORD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_MOVIE_DETAILS", function() { return FETCH_MOVIE_DETAILS; });
+const FETCH_POPULAR_MOVIES = 'FETCH_POPULAR_MOVIES';
+const FETCH_MOVIES_BY_KEYWORD = 'FETCH_MOVIES_BY_KEYWORD';
+const LOADING_UI = 'LOADING_UI';
+const SET_ERRORS = 'SET_ERRORS';
+const STOP_LOADING_UI = 'STOP_LOADING_UI';
+const CLEAR_ERRORS = 'CLEAR_ERRORS';
+const FILTER_BY = 'FILTER_BY';
+const KEYWORD = 'KEYWORD';
+const FETCH_MOVIE_DETAILS = 'FETCH_MOVIE_DETAILS';
+
+
+/***/ }),
+
+/***/ "./src/redux/reducers/moviesReducer.js":
+/*!*********************************************!*\
+  !*** ./src/redux/reducers/moviesReducer.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/types */ "./src/redux/actions/types.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const initialState = {
+  movies: [],
+  numOfPages: 1
+};
+/* harmony default export */ __webpack_exports__["default"] = ((state = initialState, action) => {
+  switch (action.type) {
+    default:
+      return state;
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__["FETCH_POPULAR_MOVIES"]:
+      return _objectSpread({}, state, {
+        movies: action.payload.data,
+        numOfPages: action.payload.numOfPages
+      });
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__["FETCH_MOVIES_BY_KEYWORD"]:
+      if (action.payload.data.length > 1) {
+        return _objectSpread({}, state, {
+          movies: action.payload.data,
+          numOfPages: action.payload.numOfPages
+        });
+      } else {
+        return _objectSpread({}, state);
+      }
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__["FETCH_MOVIE_DETAILS"]:
+      return _objectSpread({}, state, {
+        movieDetails: action.payload.data
+      });
+  }
+});
+
+/***/ }),
+
+/***/ "./src/redux/reducers/uiReducer.js":
+/*!*****************************************!*\
+  !*** ./src/redux/reducers/uiReducer.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/types */ "./src/redux/actions/types.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const initialState = {
+  errors: false,
+  loading: false,
+  keyword: ''
+};
+/* harmony default export */ __webpack_exports__["default"] = ((state = initialState, action) => {
+  switch (action.type) {
+    default:
+      return state;
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__["LOADING_UI"]:
+      return _objectSpread({}, state, {
+        loading: true
+      });
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__["STOP_LOADING_UI"]:
+      return _objectSpread({}, state, {
+        loading: false
+      });
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__["SET_ERRORS"]:
+      return _objectSpread({}, state, {
+        errors: action.payload
+      });
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__["CLEAR_ERRORS"]:
+      return _objectSpread({}, state, {
+        errors: false
+      });
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__["FILTER_BY"]:
+      return _objectSpread({}, state, {
+        filterBy: action.payload
+      });
+
+    case _actions_types__WEBPACK_IMPORTED_MODULE_0__["KEYWORD"]:
+      return _objectSpread({}, state, {
+        keyword: action.payload
+      });
+  }
+});
+
+/***/ }),
+
+/***/ "./src/redux/store.js":
+/*!****************************!*\
+  !*** ./src/redux/store.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "redux-thunk");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_thunk__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _redux_reducers_moviesReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/reducers/moviesReducer */ "./src/redux/reducers/moviesReducer.js");
+/* harmony import */ var _redux_reducers_uiReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../redux/reducers/uiReducer */ "./src/redux/reducers/uiReducer.js");
+
+
+
+
+const initialState = {
+  UI: {
+    loading: true
+  }
+};
+const middleware = [redux_thunk__WEBPACK_IMPORTED_MODULE_1___default.a];
+const reducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  UI: _redux_reducers_uiReducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  data: _redux_reducers_moviesReducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+}); // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = createStore(
+//   reducers,
+//   initialState,
+//   composeEnhancers(applyMiddleware(...middleware))
+// );
+
+const makeStore = initialState => {
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducers, initialState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(...middleware));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (makeStore);
+
+/***/ }),
+
 /***/ 0:
-/*!**********************************!*\
-  !*** multi next/dist/pages/_app ***!
-  \**********************************/
+/*!****************************************!*\
+  !*** multi private-next-pages/_app.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next/dist/pages/_app */"./node_modules/next/dist/pages/_app.js");
+module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_app.js");
 
+
+/***/ }),
+
+/***/ "next-redux-wrapper":
+/*!*************************************!*\
+  !*** external "next-redux-wrapper" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-redux-wrapper");
 
 /***/ }),
 
@@ -398,6 +685,39 @@ module.exports = __webpack_require__(/*! next/dist/pages/_app */"./node_modules/
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+
+/***/ "redux-thunk":
+/*!******************************!*\
+  !*** external "redux-thunk" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-thunk");
 
 /***/ }),
 

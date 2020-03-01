@@ -11,6 +11,7 @@ import { fetchMoviesByKeyword } from '../../redux/actions/movies';
 import { setFilters } from '../../redux/actions/ui';
 
 //ICONS
+import logo from '../../images/logo.png';
 import { IoMdGrid, IoIosList } from 'react-icons/io';
 
 class Header extends React.Component {
@@ -41,13 +42,12 @@ class Header extends React.Component {
   };
 
   handleOpen = () => {
-    // if (window.innerWidth < 1024) {
-    //     var burger = document.querySelector('.burger')
-    //     var nav = document.querySelector('#navMenu')
-    //     burger.classList.toggle('is-active')
-    //     nav.classList.toggle('navbar__menu--is-active')
-    // }
-    console.log('handleOpen');
+    if (window.innerWidth < 1024) {
+      var burger = document.querySelector('.burger');
+      var nav = document.querySelector('#navMenu');
+      burger.classList.toggle('is-active');
+      nav.classList.toggle('navbar__menu--is-active');
+    }
   };
 
   render() {
@@ -57,7 +57,7 @@ class Header extends React.Component {
     // const page = parseInt(pathname.split('/').pop(), 10);
 
     //test
-    const page = 2;
+    const page = '';
     const pathname = 'gridView';
     //
 
@@ -67,7 +67,7 @@ class Header extends React.Component {
           <div className='navbar-brand'>
             {/* <Link to='/ridView/1'> */}
             <img
-              src={this.props.logo}
+              src={logo}
               className='navbar-brand__image'
               alt='logo'
               onClick={() => this.onLogoClick()}
@@ -96,34 +96,36 @@ class Header extends React.Component {
               ></input>
             </form>
             <div className='navbar__view navbar-end'>
-              {/* <Link to={`/GridView/${page}`}> */}
-              <IoMdGrid
-                className={
-                  pathname.indexOf('GridView') > 0
-                    ? 'navbar__view__active'
-                    : 'navbar__view__non-active'
-                }
-                onClick={e => {
-                  this.handleOpen();
-                  window.scrollTo(0, 0);
-                }}
-              />
-              {/* </Link> */}
-              {/* <Link href={`/TableView/${page}`}> */}
-              <>
-                <IoIosList
-                  className={
-                    pathname.indexOf('TableView') > 0
-                      ? 'navbar__view__active'
-                      : 'navbar__view__non-active'
-                  }
-                  onClick={e => {
-                    this.handleOpen();
-                    window.scrollTo(0, 0);
-                  }}
-                />
-              </>
-              {/* </Link> */}
+              <Link href={`/gridview`}>
+                <a>
+                  <IoMdGrid
+                    className={
+                      pathname.indexOf('GridView') > 0
+                        ? 'navbar__view__active'
+                        : 'navbar__view__non-active'
+                    }
+                    onClick={e => {
+                      this.handleOpen();
+                      window.scrollTo(0, 0);
+                    }}
+                  />
+                </a>
+              </Link>
+              <Link href={`/tableview`}>
+                <a>
+                  <IoIosList
+                    className={
+                      pathname.indexOf('TableView') > 0
+                        ? 'navbar__view__active'
+                        : 'navbar__view__non-active'
+                    }
+                    onClick={e => {
+                      this.handleOpen();
+                      window.scrollTo(0, 0);
+                    }}
+                  />
+                </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -138,10 +140,5 @@ class Header extends React.Component {
 //   location: PropTypes.object.isRequired
 // };
 
-// const mapActionsToProps = {
-//   setFilters,
-//   fetchMoviesByKeyword
-// };
-
-// export default connect(null, mapActionsToProps)(withRouter(Header));
 export default Header;
+// export default Header;
