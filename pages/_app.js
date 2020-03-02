@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../src/redux/store';
 
+import { fetchMoviesByFilter } from '../src/redux/actions/movies';
+
 class Vivant extends App {
   async componentDidMount() {
     console.log('Mounted this motherfucker');
@@ -20,11 +22,12 @@ class Vivant extends App {
 }
 
 Vivant.getInitialProps = async ({ Component, ctx }) => {
+  console.log(ctx);
   let pageProps = {};
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
   }
-  console.log(ctx);
+  ctx.store.dispatch(fetchMoviesByFilter());
 
   return { pageProps };
 };

@@ -96,11 +96,11 @@ class Header extends React.Component {
               ></input>
             </form>
             <div className='navbar__view navbar-end'>
-              <Link href={`/gridview`}>
+              <Link href={`/grid`}>
                 <a>
                   <IoMdGrid
                     className={
-                      pathname.indexOf('GridView') > 0
+                      pathname.indexOf('grid') > 0
                         ? 'navbar__view__active'
                         : 'navbar__view__non-active'
                     }
@@ -111,11 +111,11 @@ class Header extends React.Component {
                   />
                 </a>
               </Link>
-              <Link href={`/tableview`}>
+              <Link href={`/table`}>
                 <a>
                   <IoIosList
                     className={
-                      pathname.indexOf('TableView') > 0
+                      pathname.indexOf('tabe') > 0
                         ? 'navbar__view__active'
                         : 'navbar__view__non-active'
                     }

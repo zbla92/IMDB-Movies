@@ -1,4 +1,5 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import movieReducer from '../redux/reducers/moviesReducer';
@@ -25,7 +26,11 @@ const reducers = combineReducers({
 // );
 
 const makeStore = initialState => {
-  return createStore(reducers, initialState, applyMiddleware(...middleware));
+  return createStore(
+    reducers,
+    initialState,
+    composeWithDevTools(applyMiddleware(...middleware))
+  );
 };
 
 export default makeStore;

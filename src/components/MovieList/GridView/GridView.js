@@ -5,15 +5,12 @@ import PropTypes from 'prop-types';
 import MovieCard from '../../MovieCard/MovieCard';
 import Pagination from '../../Pagination';
 
-class GridView extends React.Component {
-  state = {
-    insertRowEvery: 5
-  };
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
+import { useDispatch, useSelector } from 'react-redux';
 
-  renderMovies(movies) {
+function GridView(props) {
+  const { movies } = useSelector(state => state.data);
+
+  const renderMovies = movies => {
     const rendered = movies.map(
       ({ id, poster_path, title, release_date, vote_average }) => {
         const imageUrl = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`;
@@ -30,28 +27,21 @@ class GridView extends React.Component {
       }
     );
     return rendered;
-  }
-  render() {
-    if (this.props.errors) {
-      alert(this.props.errors);
-      window.location.reload();
-    }
-    return (
-      <div className="grid-view  animated fadeIn">
-        <div className="grid-view__container container">
-          {this.renderMovies(this.props.movies)}
-        </div>
-        {this.props.numOfPages > 1 ? (
-          <Pagination page={this.props.page} />
-        ) : null}
+  };
+
+  return (
+    <div className='grid-view  animated fadeIn'>
+      <div className='grid-view__container container'>
+        {movies ? renderMovies(movies) : null}
       </div>
-    );
-  }
+      {/* {this.props.numOfPages > 1 ? <Pagination page={this.props.page} /> : null} === CHECK LATER FOR IMPLEMENTING PAGINATION */}
+    </div>
+  );
 }
 
 GridView.propTypes = {
-  movies: PropTypes.array.isRequired,
-  clearErrors: PropTypes.func.isRequired,
+  movies: PropTypes.array,
+  clearErrors: PropTypes.func,
   numOfPages: PropTypes.number,
   page: PropTypes.number
 };

@@ -18485,6 +18485,38 @@ module.exports = (__webpack_require__(/*! dll-reference dll_ef0ff7c60362f24a921f
 
 /***/ }),
 
+/***/ "./node_modules/redux-devtools-extension/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/redux-devtools-extension/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var compose = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js").compose;
+
+exports.__esModule = true;
+exports.composeWithDevTools = (
+  typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ :
+    function() {
+      if (arguments.length === 0) return undefined;
+      if (typeof arguments[0] === 'object') return compose;
+      return compose.apply(null, arguments);
+    }
+);
+
+exports.devToolsEnhancer = (
+  typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION__ :
+    function() { return function(noop) { return noop; } }
+);
+
+
+/***/ }),
+
 /***/ "./node_modules/redux-thunk/es/index.js":
 /*!**********************************************!*\
   !*** ./node_modules/redux-thunk/es/index.js ***!
@@ -20348,8 +20380,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _src_redux_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/redux/store */ "./src/redux/store.js");
 /* harmony import */ var _src_components_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/components/Layout */ "./src/components/Layout/index.js");
+/* harmony import */ var _src_components_Landing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/components/Landing */ "./src/components/Landing/index.js");
+/* harmony import */ var _src_redux_actions_movies__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/redux/actions/movies */ "./src/redux/actions/movies.js");
 var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
 
 
 
@@ -20361,56 +20397,27 @@ function App() {
     className: "App",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 14
     },
     __self: this
   }, __jsx(_src_components_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 15
     },
     __self: this
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/gridview",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: this
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14
-    },
-    __self: this
-  }, "GridView")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/tableview",
+  }, __jsx(_src_components_Landing__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16
     },
     __self: this
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    },
-    __self: this
-  }, "TableView")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/test",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19
-    },
-    __self: this
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    },
-    __self: this
-  }, "test"))));
+  })));
 }
+
+App.getInitialProps = async ctx => {
+  ctx.store.dispatch(Object(_src_redux_actions_movies__WEBPACK_IMPORTED_MODULE_6__["fetchMoviesByFilter"])());
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
@@ -20928,7 +20935,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       },
       __self: this
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_6___default.a, {
-      href: "/gridview",
+      href: "/grid",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 99
@@ -20941,7 +20948,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       },
       __self: this
     }, __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_10__["IoMdGrid"], {
-      className: pathname.indexOf('GridView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active',
+      className: pathname.indexOf('grid') > 0 ? 'navbar__view__active' : 'navbar__view__non-active',
       onClick: e => {
         this.handleOpen();
         window.scrollTo(0, 0);
@@ -20952,7 +20959,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       },
       __self: this
     }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_6___default.a, {
-      href: "/tableview",
+      href: "/table",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 114
@@ -20965,7 +20972,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       },
       __self: this
     }, __jsx(react_icons_io__WEBPACK_IMPORTED_MODULE_10__["IoIosList"], {
-      className: pathname.indexOf('TableView') > 0 ? 'navbar__view__active' : 'navbar__view__non-active',
+      className: pathname.indexOf('tabe') > 0 ? 'navbar__view__active' : 'navbar__view__non-active',
       onClick: e => {
         this.handleOpen();
         window.scrollTo(0, 0);
@@ -20986,6 +20993,74 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Header); // export default Header;
+
+/***/ }),
+
+/***/ "./src/components/Landing/Landing.js":
+/*!*******************************************!*\
+  !*** ./src/components/Landing/Landing.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Landing; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _landing_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./landing.scss */ "./src/components/Landing/landing.scss");
+/* harmony import */ var _landing_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_landing_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/milanblaz/Documents/Projects/vivant_movies/src/components/Landing/Landing.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+function Landing() {
+  return __jsx("div", {
+    className: "landing",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, __jsx("h1", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, "Landing page"), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    href: "/grid",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, "ENTER FOR FREE")));
+}
+
+/***/ }),
+
+/***/ "./src/components/Landing/index.js":
+/*!*****************************************!*\
+  !*** ./src/components/Landing/index.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Landing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Landing */ "./src/components/Landing/Landing.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (_Landing__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -21052,6 +21127,7 @@ const Layout = props => __jsx("div", {
   },
   __self: undefined
 }), __jsx("div", {
+  className: "children",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 21
@@ -21464,9 +21540,12 @@ const initialState = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
-/* harmony import */ var _redux_reducers_moviesReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/reducers/moviesReducer */ "./src/redux/reducers/moviesReducer.js");
-/* harmony import */ var _redux_reducers_uiReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../redux/reducers/uiReducer */ "./src/redux/reducers/uiReducer.js");
+/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-devtools-extension */ "./node_modules/redux-devtools-extension/index.js");
+/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
+/* harmony import */ var _redux_reducers_moviesReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../redux/reducers/moviesReducer */ "./src/redux/reducers/moviesReducer.js");
+/* harmony import */ var _redux_reducers_uiReducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../redux/reducers/uiReducer */ "./src/redux/reducers/uiReducer.js");
+
 
 
 
@@ -21476,10 +21555,10 @@ const initialState = {
     loading: true
   }
 };
-const middleware = [redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"]];
+const middleware = [redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"]];
 const reducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  UI: _redux_reducers_uiReducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  data: _redux_reducers_moviesReducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  UI: _redux_reducers_uiReducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  data: _redux_reducers_moviesReducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 }); // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // const store = createStore(
 //   reducers,
@@ -21488,14 +21567,14 @@ const reducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
 // );
 
 const makeStore = initialState => {
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducers, initialState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(...middleware));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducers, initialState, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(...middleware)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (makeStore);
 
 /***/ }),
 
-/***/ 2:
+/***/ 9:
 /*!***********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fmilanblaz%2FDocuments%2FProjects%2Fvivant_movies%2Fpages%2Findex.js ***!
   \***********************************************************************************************************************************************/
@@ -21518,5 +21597,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js","styles"]]]);
+},[[9,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map
